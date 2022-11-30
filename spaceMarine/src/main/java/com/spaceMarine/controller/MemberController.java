@@ -53,6 +53,9 @@ public class MemberController {
 		} else {
 			return "redirect:/board/main";
 		}
-
+		/*
+		 * if (memberVO.getCo_cd() == null || memberVO.getCo_nm() == null) { return
+		 * "redirect:/"; } else { return "redirect:/board/main"; }
+		 */
 	}
 }
