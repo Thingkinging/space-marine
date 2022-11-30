@@ -43,7 +43,16 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(MemberVO memberVO, Model model) {
 
-		return "redirect:/board/main";
+		memberVO = service.get(memberVO);
+
+		model.addAttribute("member", memberVO);
+		System.out.println(memberVO);
+
+		if (memberVO.getCo_cd() == null || memberVO.getCo_nm() == null) {
+			return "redirect:/";
+		} else {
+			return "redirect:/board/main";
+		}
 
 	}
 }

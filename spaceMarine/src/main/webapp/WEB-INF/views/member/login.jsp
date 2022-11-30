@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <script>
-	function check() {
-		if ($("#co_cd").val() == "") {
-			alert("아이디를 입력해주세요.");
-			return false;
-			history.go(-1); // 안먹힘
-		}
-		if ($("#co_nm").val() == "") {
-			alert("비밀번호를 입력해주세요.");
-			return false;
-		}
-	}
+// 	function check() {
+// 		if ($("#co_cd").val() == "") {
+// 			alert("아이디를 입력해주세요.");
+// 			return false;
+// 		}
+// 		if ($("#co_nm").val() == "") {
+// 			alert("비밀번호를 입력해주세요.");
+// 			return false;
+// 		}
+// 	}
 </script>
 <article id="login">
 	<h2 class="major">Login</h2>
