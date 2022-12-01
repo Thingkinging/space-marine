@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +6,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<table>
 		<tr>
-			<td>제품 상세 정보</td>
+			<td>가격 정보</td>
 		</tr>
 	</table>
 	<table>
@@ -27,7 +26,7 @@
 			<td>10000</td>
 		</tr>
 	</table>
-	
+
 	<table>
 		<tr>
 			<td>제품이미지</td>
@@ -36,7 +35,7 @@
 			<td></td>
 		</tr>
 	</table>
-	
+
 	<table>
 		<tr>
 			<td>제품 설명</td>
@@ -51,7 +50,5 @@
 			<td>2023-01</td>
 		</tr>
 	</table>
-	
-	
 </body>
 </html>

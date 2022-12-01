@@ -6,6 +6,8 @@ import lombok.Data;
 public class MemberVO {
 
 	// MariaDB bas1140
+	private String id;
+	private String pwd;
 	private String co_cd; // 회사코드 *PK
 	private String co_nm; // 회사명
 	private String co_nm_en; // 회사명(영문)

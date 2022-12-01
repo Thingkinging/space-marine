@@ -11,13 +11,13 @@
 
 	<insert id="insert">
 	<![CDATA[
-		insert into member_test(co_cd, co_nm, biz_no ,co_no, co_gbn)
-		values(#{co_cd}, #{co_nm},#{biz_no} , #{co_no}, #{co_gbn})
+		insert into member_test(id, pwd, co_cd, co_nm, zip_no, addr_h, ceo_addr_h, addr_d, use_yn)
+		values(#{id}, #{pwd}, #{co_cd}, #{co_nm}, #{zip_no}, #{addr_h}, #{ceo_addr_h}, #{addr_d}, #{use_yn})
 		]]>
 	</insert>
 	
 	<select id="read" resultType="com.spaceMarine.vo.MemberVO">
-		select co_cd, co_nm from member_test where co_cd = #{co_cd} and co_nm = #{co_nm}
+		select id, pwd from member_test where id = #{id} and pwd = #{pwd}
 	</select>
 
 </mapper>

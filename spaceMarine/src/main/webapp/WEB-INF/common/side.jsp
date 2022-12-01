@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <title>side</title>
 
-<link href="${pageContext.request.contextPath}/resources/main/css/bootstrap.min.css" rel="stylesheet">
+<%-- <link href="${pageContext.request.contextPath}/resources/main/css/bootstrap.min.css" rel="stylesheet"> --%>
 <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
 <style>
 .bd-placeholder-img {
@@ -88,18 +88,18 @@ ul {
 			<li class="mb-1">
 				<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse"
 					aria-expanded="false"
-				>Menu1</button>
+				>상의</button>
 				<div class="collapse" id="home-collapse">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 								data-bs-target="#home2-collapse" aria-expanded="false"
-							>subMenu1</a>
+							>반팔</a>
 							<div class="collapse" id="home2-collapse">
 								<ul>
-									<li><a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded">v넥</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">u넥</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">캐릭터</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">민소매</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -108,13 +108,13 @@ ul {
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 								data-bs-target="#home3-collapse" aria-expanded="false"
-							>subMenu2</a>
+							>긴팔</a>
 							<div class="collapse" id="home3-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">v넥</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">u넥</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">후드티</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">목티</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -123,18 +123,18 @@ ul {
 			<li class="mb-1">
 				<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dash-collapse"
 					aria-expanded="false"
-				>Menu2</button>
+				>하의</button>
 				<div class="collapse" id="dash-collapse">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 								data-bs-target="#dash2-collapse" aria-expanded="false"
-							>subMenu1</a>
+							>바지</a>
 							<div class="collapse" id="dash2-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">긴바지</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">반바지</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">면바지</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">골덴</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -143,13 +143,13 @@ ul {
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 								data-bs-target="#dash3-collapse" aria-expanded="false"
-							>subMenu2</a>
+							>치마</a>
 							<div class="collapse" id="dash3-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">롱치마</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">미니스커트</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">H스커트</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">실크치마</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -157,18 +157,18 @@ ul {
 			<li class="mb-1">
 				<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse"
 					aria-expanded="false"
-				>Menu3</button>
+				>아웃터</button>
 				<div class="collapse" id="orders-collapse">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 								data-bs-target="#dorders2-collapse" aria-expanded="false"
-							>subMenu1</a>
+							>자켓</a>
 							<div class="collapse" id="orders2-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">청자켓</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">가죽자켓</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">후리스</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">야상</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -177,13 +177,13 @@ ul {
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 								data-bs-target="#orders3-collapse" aria-expanded="false"
-							>subMenu2</a>
+							>패딩</a>
 							<div class="collapse" id="orders3-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">롱패딩</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">숏패딩</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">경량패딩</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">베스트패딩</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -192,18 +192,18 @@ ul {
 			<li class="mb-1">
 				<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse"
 					aria-expanded="false"
-				>Menu4</button>
+				>악세서리</button>
 				<div class="collapse" id="account-collapse">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle link-dark d-inline-flex text-decoration-none rounded collapsed" data-bs-toggle="collapse"
 								data-bs-target="#account2-collapse" aria-expanded="false"
-							>subMenu1</a>
+							>신발</a>
 							<div class="collapse" id="account2-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">운동화</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">스니커즈</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">슬리퍼</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">샌들</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -212,13 +212,13 @@ ul {
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle link-dark d-inline-flex text-decoration-none rounded collapsed" data-bs-toggle="collapse"
 								data-bs-target="#account3-collapse" aria-expanded="false"
-							>subMenu2</a>
+							>etc</a>
 							<div class="collapse" id="account3-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">반지</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">모자</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">목도리</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">팔찌</a></li>
 								</ul>
 							</div></li>
 					</ul>
@@ -235,7 +235,7 @@ ul {
 
 
 
-	<script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script>
+	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
 
 		<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>

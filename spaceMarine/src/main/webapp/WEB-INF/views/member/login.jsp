@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <style>
-
 </style>
 
 
@@ -24,20 +23,24 @@
 			<!-- 로그인 페이지 타이틀 -->
 			<div id="loginBoxTitle">Space Marine</div>
 			<!-- 아이디, 비번, 버튼 박스 -->
-			<div id="inputBox">
-				<div class="input-form-box">
-					<span>아이디 </span>
-					<input type="text" name="uid" class="form-control">
+			<form action="/member/login" method="post">
+				<div id="inputBox">
+					<div class="input-form-box">
+						<span>아이디 </span>
+						<input type="text" name="id" id="id" class="form-control">
+					</div>
+					<div class="input-form-box">
+						<span>비밀번호 </span>
+						<input type="password" name="pwd" id="pwd" class="form-control">
+					</div>
+					<div class="button-login-box">
+						<a href="/member/register">
+							<button type="button" class="btn btn-primary btn-xs" style="width: 45%">회원가입</button>
+						</a>
+						<button type=submit class="btn btn-primary btn-xs" id="btn_login" style="width: 45%" onclick="btn_login()">로그인</button>
+					</div>
 				</div>
-				<div class="input-form-box">
-					<span>비밀번호 </span>
-					<input type="password" name="upw" class="form-control">
-				</div>
-				<div class="button-login-box">
-					<a href="/member/register"><button type="button" class="btn btn-primary btn-xs" style="width: 45%">회원가입</button></a>
-					<button type="button" class="btn btn-primary btn-xs" style="width: 45%">로그인</button>
-				</div>
-			</div>
+			</form>
 
 		</div>
 	</div>
@@ -46,3 +49,26 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
 	></script>
+	<script type="text/javascript">
+		function btn_login() {
+			var id = $('#id');
+			var pwd = $('#pwd');
+
+			$.ajax({
+				type : 'post',
+				url : "/member/login",
+				data : {
+					id : id,
+					pwd : pwd
+				},
+				success : function(data) {
+					if (data) {
+						window.location.href = "/board/main.jsp";
+					} else {
+						alert('로그인에 실패하였습니다.')
+					}
+				}
+
+			})
+		}
+	</script>

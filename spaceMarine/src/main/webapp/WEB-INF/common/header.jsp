@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,21 @@
 				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="/">
 						<h4>Home</h4>
 					</a></li>
-				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="/board/info">
+				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="/board/company">
 						<h4>About</h4>
 					</a></li>
-				<li class="nav-item"><a href="/member/login" class="nav-link px-lg-3 py-3 py-lg-6"><b>로그인</b></a></li>
+				<c:choose>
+					<c:when test="${empty member}">
+						<li class="nav-item"><a href="/member/login" class="nav-link px-lg-3 py-3 py-lg-6">
+								<b>로그인</b>
+							</a></li>
+					</c:when>
+					<c:when test="${!empty member}">
+						<li class="nav-item"><a href="#" class="nav-link px-lg-3 py-3 py-lg-6">
+								<b><c:out value="${member.id}" />님 안녕하세요</b>
+							</a></li>
+					</c:when>
+				</c:choose>
 			</ul>
 		</div>
 	</nav>

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spaceMarine.service.MemberService;
 import com.spaceMarine.service.ProductService;
 
 import lombok.AllArgsConstructor;
@@ -20,9 +21,12 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 
+	@Autowired
+	private MemberService memberService;
+
 	@GetMapping("/main")
 	public void list(Model model) {
-		log.info("main");
+		log.info("main.........");
 
 		model.addAttribute("list", service.getList());
 
@@ -30,11 +34,19 @@ public class ProductController {
 
 	@GetMapping("/popup")
 	public String pop() {
+		log.info("codeInfo.......");
 		return "/popup/codeInfo";
 	}
 
 	@GetMapping("/info")
 	public String info() {
+		log.info("priceInfo.......");
+		return "/popup/priceInfo";
+	}
+
+	@GetMapping("/company")
+	public String companyInfo() {
+		log.info("companyInfo.......");
 		return "/company/info";
 	}
 

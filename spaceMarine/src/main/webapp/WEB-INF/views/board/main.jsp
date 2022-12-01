@@ -26,7 +26,7 @@
 <body>
 	<!-- Header-->
 	<%@ include file="../../common/header.jsp"%>
-
+	
 
 	<!-- SideBar -->
 	<%@ include file="../../common/side.jsp"%>
@@ -55,7 +55,7 @@
 				<td><c:out value="${list.product}"></c:out></td>
 				<td><c:out value="${list.note}"></c:out></td>
 				<td><c:out value="${list.unit}"></c:out></td>
-				<td><a href="javascript:codeInfo()" id="codeInfo">
+				<td><a href="javascript:info()" id="info">
 						<c:out value="${list.price}" />
 					</a></td>
 			</tr>
@@ -74,8 +74,16 @@
 
 	<script type="text/javascript">
 		function codeInfo() {
-			var popUrl = "/board/main";
+			var popUrl = "/board/popup";
 			var popName = "codeInfo";
+			var popOption = "width = 650px, height=550px, top=300px, left=300px, scrollbars=yes";
+			window.open(popUrl, popName, popOption)
+		}
+	</script>
+	<script type="text/javascript">
+		function info() {
+			var popUrl = "/board/info";
+			var popName = "info";
 			var popOption = "width = 650px, height=550px, top=300px, left=300px, scrollbars=yes";
 			window.open(popUrl, popName, popOption)
 		}
