@@ -40,6 +40,11 @@ public class MemberController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/login")
+	public void login() {
+		log.info("login......");
+	}
+
 	@PostMapping("/login")
 	public String login(MemberVO memberVO, Model model) {
 
@@ -53,9 +58,5 @@ public class MemberController {
 		} else {
 			return "redirect:/board/main";
 		}
-		/*
-		 * if (memberVO.getCo_cd() == null || memberVO.getCo_nm() == null) { return
-		 * "redirect:/"; } else { return "redirect:/board/main"; }
-		 */
 	}
 }

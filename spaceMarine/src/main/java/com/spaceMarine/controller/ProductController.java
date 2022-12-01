@@ -38,6 +38,12 @@ public class ProductController {
 		return "/company/info";
 	}
 
+	@GetMapping("/page1")
+	public String sidePage() {
+		log.info("page1........");
+		return "/sidePage/page1";
+	}
+
 //	@GetMapping
 //	public void get(@RequestParam("code") String code, Model model) {
 //		log.info("get");

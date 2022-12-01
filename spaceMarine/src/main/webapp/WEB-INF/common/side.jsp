@@ -96,7 +96,7 @@ ul {
 							>subMenu1</a>
 							<div class="collapse" id="home2-collapse">
 								<ul>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
+									<li><a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu1</a></li>
 									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu2</a></li>
 									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu3</a></li>
 									<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">reSubMenu4</a></li>
@@ -235,7 +235,7 @@ ul {
 
 
 
-	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script>
 
 		<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>

@@ -1,33 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<script>
-// 	function check() {
-// 		if ($("#co_cd").val() == "") {
-// 			alert("아이디를 입력해주세요.");
-// 			return false;
-// 		}
-// 		if ($("#co_nm").val() == "") {
-// 			alert("비밀번호를 입력해주세요.");
-// 			return false;
-// 		}
-// 	}
-</script>
-<article id="login">
-	<h2 class="major">Login</h2>
-	<form method="post" action="/member/login">
-		<div class="fields">
-			<div class="field half">
-				<label for="co_cd">ID</label>
-				<input type="text" name="co_cd" id="co_cd" />
+<style>
+
+</style>
+
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"
+>
+
+<!-- 나의 스타일 추가 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/main/css/login.css?v=1234">
+
+</head>
+<body class="text-center">
+
+	<!--  html 전체 영역을 지정하는 container -->
+	<div id="container">
+		<!--  login 폼 영역을 : loginBox -->
+		<div id="loginBox">
+
+			<!-- 로그인 페이지 타이틀 -->
+			<div id="loginBoxTitle">Space Marine</div>
+			<!-- 아이디, 비번, 버튼 박스 -->
+			<div id="inputBox">
+				<div class="input-form-box">
+					<span>아이디 </span>
+					<input type="text" name="uid" class="form-control">
+				</div>
+				<div class="input-form-box">
+					<span>비밀번호 </span>
+					<input type="password" name="upw" class="form-control">
+				</div>
+				<div class="button-login-box">
+					<a href="/member/register"><button type="button" class="btn btn-primary btn-xs" style="width: 45%">회원가입</button></a>
+					<button type="button" class="btn btn-primary btn-xs" style="width: 45%">로그인</button>
+				</div>
 			</div>
-			<div class="field half">
-				<label for="co_nm">Password</label>
-				<input type="text" name="co_nm" id="co_nm" />
-			</div>
+
 		</div>
-		<ul class="actions">
-			<li><input type="submit" value="login" class="primary" onclick="check()"/></li>
-			<li><input type="reset" value="Reset" /></li>
-		</ul>
-	</form>
-</article>
+	</div>
+
+	<!-- Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
+	></script>
