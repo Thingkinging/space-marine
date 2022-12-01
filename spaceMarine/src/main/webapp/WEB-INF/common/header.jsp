@@ -22,13 +22,13 @@
 	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
 		<div class="container px-4 px-lg-5">
 			<ul class="navbar-nav ms-auto py-4 py-lg-2" style="margin-top: 0;">
-				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="/">
-						<h4>Home</h4>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="javascript:homepageInfo()" id="homepageInfo">
+						<h4>회사소개</h4>
 					</a></li>
-				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="/board/company">
-						<h4>About</h4>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="javascript:companyInfo()" id="companyInfo">
+						<h4>홈페이지 이용가이드</h4>
 					</a></li>
-				<c:choose>
+			<%-- 	<c:choose>
 					<c:when test="${empty member}">
 						<li class="nav-item"><a href="/member/login" class="nav-link px-lg-3 py-3 py-lg-6">
 								<b>로그인</b>
@@ -39,14 +39,12 @@
 								<b><c:out value="${member.id}" />님 안녕하세요</b>
 							</a></li>
 					</c:when>
-				</c:choose>
+				</c:choose> --%>
 			</ul>
 		</div>
 	</nav>
 	<!-- Page Header-->
-	<header class="masthead"
-		<%--  style="background-image: url('${pageContext.request.contextPath}/resources/main/assets/img/home-bg.jpg')" --%> style="margin-bottom: 30px;"
-	>
+	<header class="masthead" style=" background-color: rgb(26, 90, 197); margin-bottom: 2px;">
 		<div class="container position-relative px-4 px-lg-5">
 			<div class="row gx-4 gx-lg-5">
 				<div class="col-md-10 col-lg-8 col-3">
@@ -57,5 +55,21 @@
 			</div>
 		</div>
 	</header>
+	<script type="text/javascript">
+		function companyInfo() {
+			var popUrl = "/board/companyInfo";
+			var popName = "companyInfo";
+			var popOption = "width = 650px, height=550px, top=300px, left=300px, scrollbars=yes";
+			window.open(popUrl, popName, popOption)
+		}
+	</script>
+	<script type="text/javascript">
+		function homepageInfo() {
+			var popUrl = "/board/homepageInfo";
+			var popName = "homepageInfo";
+			var popOption = "width = 650px, height=550px, top=300px, left=300px, scrollbars=yes";
+			window.open(popUrl, popName, popOption)
+		}
+	</script>
 </body>
 </html>

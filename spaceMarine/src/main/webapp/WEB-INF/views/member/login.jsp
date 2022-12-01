@@ -23,7 +23,7 @@
 			<!-- 로그인 페이지 타이틀 -->
 			<div id="loginBoxTitle">Space Marine</div>
 			<!-- 아이디, 비번, 버튼 박스 -->
-			<form action="/member/login" method="post">
+			<form action="/member/login" method="post" name="login_form">
 				<div id="inputBox">
 					<div class="input-form-box">
 						<span>아이디 </span>
@@ -37,7 +37,7 @@
 						<a href="/member/register">
 							<button type="button" class="btn btn-primary btn-xs" style="width: 45%">회원가입</button>
 						</a>
-						<button type=submit class="btn btn-primary btn-xs" id="btn_login" style="width: 45%" onclick="btn_login()">로그인</button>
+						<button type="button" class="btn btn-primary btn-xs" id="btn_login" style="width: 45%" onclick="login_check()">로그인</button>
 					</div>
 				</div>
 			</form>
@@ -50,25 +50,18 @@
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
 	></script>
 	<script type="text/javascript">
-		function btn_login() {
-			var id = $('#id');
-			var pwd = $('#pwd');
-
-			$.ajax({
-				type : 'post',
-				url : "/member/login",
-				data : {
-					id : id,
-					pwd : pwd
-				},
-				success : function(data) {
-					if (data) {
-						window.location.href = "/board/main.jsp";
-					} else {
-						alert('로그인에 실패하였습니다.')
-					}
-				}
-
-			})
+		function login_check() {
+			if (!document.login_form.id.value) {
+				alert("아이디를 입력하세요.");
+				document.login_form.id.focus();
+				return;
+			}
+			if (!document.login_form.pwd.value) {
+				alert("비밀번호를 입력하세요.");
+				document.login_form.pwd.focus();
+				return;
+			}
+			
+			document.login_form.submit();
 		}
 	</script>

@@ -44,10 +44,16 @@ public class ProductController {
 		return "/popup/priceInfo";
 	}
 
-	@GetMapping("/company")
+	@GetMapping("/companyInfo")
 	public String companyInfo() {
 		log.info("companyInfo.......");
-		return "/company/info";
+		return "/popup/companyInfo";
+	}
+
+	@GetMapping("/homepageInfo")
+	public String homepageInfo() {
+		log.info("homepageInfo.......");
+		return "/popup/homepageInfo";
 	}
 
 	@GetMapping("/page1")
