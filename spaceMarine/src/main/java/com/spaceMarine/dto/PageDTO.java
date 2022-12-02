@@ -21,7 +21,7 @@ public class PageDTO {
 		this.cri = cri;
 
 		// 페이징 끝번호
-		this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0) * 10);
+		this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0)) * 10;
 
 		// 페이징 시작번호
 		this.startPage = this.endPage - 9;

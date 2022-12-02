@@ -12,6 +12,7 @@
 <link rel="icon" type="${pageContext.request.contextPath}/resources/main/image/x-icon"
 	href="${pageContext.request.contextPath}/resources/main/assets/favicon.ico"
 />
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 <!-- Google fonts-->
@@ -23,17 +24,22 @@
 <link href="${pageContext.request.contextPath}/resources/main/css/styles.css" rel="stylesheet" />
 <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
 <style type="text/css">
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+.main_btn {
+	float: left;
+	padding: 4px;
+	margin-right: 10px;
+	width: 40px;
+	color: #000;
+	font: bold 20px tahoma;
+	border: 1px solid #eee;
+	text-align: center;
+	text-decoration: none;
 }
 
-li {
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-	border: 0;
-	float: left;
+.main_btn:hover, .main_btn :focus {
+	color: #fff;
+	border: 1px solid #f40;
+	background-color: #f40;
 }
 </style>
 </head>
@@ -47,11 +53,12 @@ li {
 
 	<!-- Main Content-->
 	<!-- <main class="d-flex flex-nowrap"> -->
-	<div style="width: 70%;" align="center">
+
+	<div style="width: 70%; margin-top: 20px;" align="center">
 		<input type="text" value="" name="">
 		<button type="submit">검색</button>
 	</div>
-	<table class="table table-bordered" style="float: left; width: 70%; margin-top: 70px; table-layout: fixed; text-align: center;">
+	<table class="table table-bordered" style="float: left; width: 70%; margin-top: 30px; table-layout: fixed; text-align: center;">
 		<thead>
 			<tr>
 				<th scope="col" width="15%">코드번호</th>
@@ -63,7 +70,7 @@ li {
 		</thead>
 		<c:forEach var="list" items="${list}">
 			<tr>
-				<td><a href="javascript:codeInfo()" id="codeInfo">
+				<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
 						<c:out value="${list.code}" />
 					</a></td>
 				<td><c:out value="${list.product}"></c:out></td>
@@ -75,32 +82,27 @@ li {
 			</tr>
 		</c:forEach>
 	</table>
-	<div class="pull-right" style="clear: both;">
-		<ul class="paginate">
+
+	<div style="margin-left: 35%;">
+		<ul class="pagination" style="list-style: none; float: left; display: inline;">
 			<c:if test="${pageMaker.prev}">
-				<li class="paginate_button previos"><a href="${pageMaker.startPage-1}"></a>이전</li>
+				<li class="paginate_button previous" style="float: left;"><a href="${pageMaker.startPage -1}" class="main_btn" style="">◀</a></li>
 			</c:if>
 
 			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-				<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':''}"><a href="${num}">${num}</a></li>
+				<li class="paginate_button  ${pageMaker.cri.pageNum == num ? 'active':''} " style="float: left;"><a href="${num}" class="main_btn">${num}</a></li>
 			</c:forEach>
 
 			<c:if test="${pageMaker.next}">
-				<li class="paginate_button next"><a href="${pageMaker.endPage-1}">다음</a></li>
+				<li class="paginate_button next" style="float: left;"><a href="${pageMaker.endPage +1 }" class="main_btn">▶</a></li>
 			</c:if>
 		</ul>
 	</div>
 	<form action="/board/main" method="get" id="actionForm">
-		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 	</form>
-	<!-- </main> -->
-
-	<div class="container px-4 px-lg-5" style="clear: both;">
-		<div class="row gx-4 gx-lg-5 justify-content-center">
-			<div class="col-md-10 col-lg-8 col-xl-7"></div>
-		</div>
-	</div>
+	<div class="container px-4 px-lg-5" style="clear: both;"></div>
 	<!-- Footer-->
 	<%@ include file="../../common/footer.jsp"%>
 
@@ -123,14 +125,15 @@ li {
 	<script type="text/javascript">
 		$(document).ready(
 				function() {
-
 					var actionForm = $("#actionForm");
 					$(".paginate_button a").on(
 							"click",
 							function(e) {
+
 								e.preventDefault();
 
-								console.log("click");
+								console.log('click');
+
 								actionForm.find("input[name='pageNum']").val(
 										$(this).attr("href"));
 								actionForm.submit();

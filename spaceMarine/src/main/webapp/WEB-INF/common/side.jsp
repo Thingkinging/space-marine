@@ -69,18 +69,18 @@ ul {
 </head>
 <body>
 	<div class="flex-shrink-0"
-		style="width: 18%; height: 100vh; max-height: 100vh; overflow-x: auto; overflow-y: hidden; float: left; background-color: rgb(26, 90, 197);"
+		style="width: 15%; height: 100vh; max-height: 100vh; overflow-x: auto; overflow-y: hidden; float: left; background-color: rgb(26, 90, 197);"
 	><br>
-		<span class="fw-bold" style="color: white; padding: 15px;">가격단위</span>
+		<h3 style="padding-left: 20px; color: white; font: bold;">가격 단위</h3>
 		<div style="background-color: rgb(70, 110, 200); margin: 0;">
 			<hr>
-			<div class="fs-5 fw-bold" style="color: white; margin-left: 20px;">
+			<div class="fs-5 fw-bold" style="color: white; margin-left: 30px;">
 				대한민국
-				<input type="radio" name="chk_info" value="대한민국">
+				&nbsp;&nbsp;<input type="radio" name="chk_info" value="대한민국">
 			</div>
-			<div class="fs-5 fw-bold" style="color: white; margin-left: 20px;">
+			<div class="fs-5 fw-bold" style="color: white; margin-left: 30px;">
 				US
-				<input type="radio" name="chk_info" value="미국">
+				&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="chk_info" value="미국">
 			</div>
 			<hr>
 		</div>
@@ -95,40 +95,40 @@ ul {
 					<td>&nbsp;&nbsp;&nbsp;<input type="radio" name="chk_info" value="미국"></td>
 				</tr>
 			</table> -->
-		<span class="fw-bold" style="color: white; padding: 10px;">제품 카테고리 코드 분류</span>
-		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
+		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
+		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh; padding-left: 10px;">
 			<ul class="list-unstyled ps-0">
 				<li class="mb-1">
 					<hr>
 					<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse"
 						aria-expanded="false" style="color: white;"
-					>상의</button>
+					><h5>상의</h5></button>
 					<div class="collapse" id="home-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 									data-bs-target="#home2-collapse" aria-expanded="false" style="color: white;"
-								>반팔</a>
+								><h5>반팔</h5></a>
 								<div class="collapse" id="home2-collapse">
 									<ul>
-										<li><a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded">v넥</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">u넥</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">캐릭터</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">민소매</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">v넥</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">u넥</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">캐릭터</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">민소매</a></li>
 									</ul>
 								</div></li>
 						</ul>
 					</div>
 					<div class="collapse" id="home-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 									data-bs-target="#home3-collapse" aria-expanded="false" style="color: white;"
-								>긴팔</a>
+								><h5>긴팔</h5></a>
 								<div class="collapse" id="home3-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">v넥</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">u넥</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">후드티</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">목티</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">v넥</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">u넥</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">후드티</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">목티</a></li>
 									</ul>
 								</div></li>
 						</ul>
@@ -137,33 +137,33 @@ ul {
 				<li class="mb-1">
 					<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dash-collapse"
 						aria-expanded="false" style="color: white;"
-					>하의</button>
+					><h5>하의</h5></button>
 					<div class="collapse" id="dash-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 									data-bs-target="#dash2-collapse" aria-expanded="false" style="color: white;"
-								>바지</a>
+								><h5>바지</h5></a>
 								<div class="collapse" id="dash2-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">긴바지</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">반바지</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">면바지</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">골덴</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">긴바지</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">반바지</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">면바지</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">골덴</a></li>
 									</ul>
 								</div></li>
 						</ul>
 					</div>
 					<div class="collapse" id="dash-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 									data-bs-target="#dash3-collapse" aria-expanded="false" style="color: white;"
-								>치마</a>
+								><h5>치마</h5></a>
 								<div class="collapse" id="dash3-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">롱치마</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">미니스커트</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">H스커트</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">실크치마</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">롱치마</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">미니스커트</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">H스커트</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">실크치마</a></li>
 									</ul>
 								</div></li>
 						</ul>
@@ -171,33 +171,33 @@ ul {
 				<li class="mb-1">
 					<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse"
 						aria-expanded="false" style="color: white;"
-					>아웃터</button>
+					><h5>아웃터</h5></button>
 					<div class="collapse" id="orders-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
-									data-bs-target="#dorders2-collapse" aria-expanded="false" style="color: white;"
-								>자켓</a>
+							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
+									data-bs-target="#orders2-collapse" aria-expanded="false" style="color: white;"
+								><h5>자켓</h5></a>
 								<div class="collapse" id="orders2-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">청자켓</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">가죽자켓</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">후리스</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">야상</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">청자켓</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">가죽자켓</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">후리스</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">야상</a></li>
 									</ul>
 								</div></li>
 						</ul>
 					</div>
 					<div class="collapse" id="orders-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
 									data-bs-target="#orders3-collapse" aria-expanded="false" style="color: white;"
-								>패딩</a>
+								><h5>패딩</h5></a>
 								<div class="collapse" id="orders3-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">롱패딩</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">숏패딩</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">경량패딩</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">베스트패딩</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">롱패딩</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">숏패딩</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">경량패딩</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">베스트패딩</a></li>
 									</ul>
 								</div></li>
 						</ul>
@@ -206,33 +206,33 @@ ul {
 				<li class="mb-1">
 					<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse"
 						aria-expanded="false" style="color: white;"
-					>악세서리</button>
+					><h5>악세서리</h5></button>
 					<div class="collapse" id="account-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle link-dark d-inline-flex text-decoration-none rounded collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle link-dark d-inline-flex text-decoration-none rounded collapsed" data-bs-toggle="collapse"
 									data-bs-target="#account2-collapse" aria-expanded="false" style="color: white;"
-								>신발</a>
+								><h5>신발</h5></a>
 								<div class="collapse" id="account2-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">운동화</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">스니커즈</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">슬리퍼</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">샌들</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">운동화</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">스니커즈</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">슬리퍼</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">샌들</a></li>
 									</ul>
 								</div></li>
 						</ul>
 					</div>
 					<div class="collapse" id="account-collapse">
 						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&nbsp;&nbsp;<a href="#" class="btn btn-toggle link-dark d-inline-flex text-decoration-none rounded collapsed" data-bs-toggle="collapse"
+							<li>&emsp;<a href="#" class="btn btn-toggle link-dark d-inline-flex text-decoration-none rounded collapsed" data-bs-toggle="collapse"
 									data-bs-target="#account3-collapse" aria-expanded="false" style="color: white;"
-								>etc</a>
+								><h5>etc</h5></a>
 								<div class="collapse" id="account3-collapse">
 									<ul>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">반지</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">모자</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">목도리</a></li>
-										<li><a href="#" class="link-dark d-inline-flex text-decoration-none border-0 rounded">팔찌</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">반지</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">모자</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">목도리</a></li>
+										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">팔찌</a></li>
 									</ul>
 								</div></li>
 						</ul>

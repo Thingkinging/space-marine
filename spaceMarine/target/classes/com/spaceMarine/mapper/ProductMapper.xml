@@ -18,7 +18,7 @@
 	<!-- 페이징 처리 -->
 	<select id="getListWithPaging" resultType="com.spaceMarine.vo.ProductVO">
 		<![CDATA[
-			SELECT code, product, note, unit, price from popup_test orders LIMIT #{pageNum},#{amount}
+			SELECT code, product, note, unit, price from popup_test orders LIMIT #{amount}
 		]]>
 	</select>
 	

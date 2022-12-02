@@ -29,7 +29,8 @@ table tr {
 	border-top: none;
 	border-bottom: none;
 }
-table tr th{
+
+table tr th {
 	border-right: none;
 	border-left: none;
 	border-top: none;
@@ -67,16 +68,43 @@ table tr th{
 			</tr>
 		</thead>
 		<tbody>
-			
+
 		</tbody>
 
+	</table>
+
+	<!-- </main> -->
+
+	<table class="table table-bordered" style="float: left; width: 70%; margin-top: 30px; table-layout: fixed; text-align: center;">
+		<thead>
+			<tr>
+				<th scope="col" width="15%">제품 번호</th>
+				<th scope="col" width="35%">재고</th>
+				<th scope="col" width="20%">단위</th>
+				<th scope="col" width="10%">참고사항</th>
+				<th scope="col" width="20%">가격(WON)</th>
+			</tr>
+		</thead>
+		<c:forEach var="list" items="${list}">
+			<tr>
+				<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
+						<c:out value="${list.code}" />
+					</a></td>
+				<td><c:out value="${list.product}"></c:out></td>
+				<td><c:out value="${list.note}"></c:out></td>
+				<td><c:out value="${list.unit}"></c:out></td>
+				<td><a href="javascript:info()" id="info">
+						<c:out value="${list.price}" />
+					</a></td>
+			</tr>
+		</c:forEach>
 	</table>
 
 
 
 
 
-	<!-- </main> -->
+
 
 	<div class="container px-4 px-lg-5" style="clear: both;">
 		<div class="row gx-4 gx-lg-5 justify-content-center">

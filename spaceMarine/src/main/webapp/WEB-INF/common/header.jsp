@@ -19,39 +19,40 @@
 <link href="${pageContext.request.contextPath}/resources/main/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-		<div class="container px-4 px-lg-5">
-			<ul class="navbar-nav ms-auto py-4 py-lg-2" style="margin-top: 0;">
-				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="javascript:homepageInfo()" id="homepageInfo">
-						<h4>회사소개</h4>
-					</a></li>
-				<li class="nav-item"><a class="nav-link px-lg-3 py-1 py-lg-5" href="javascript:companyInfo()" id="companyInfo">
-						<h4>홈페이지 이용가이드</h4>
-					</a></li>
-			<%-- 	<c:choose>
-					<c:when test="${empty member}">
-						<li class="nav-item"><a href="/member/login" class="nav-link px-lg-3 py-3 py-lg-6">
+
+	<header class="masthead" style="background-color: rgb(26, 90, 197); margin-bottom: 2px;">
+
+		<div>
+			<div class="row">
+				<nav class="navbar" id="mainNav" style="margin-top: 30px;">
+					<a class="nav-link px-lg-3 py-1 py-lg-5" href="javascript:companyInfo()" id="companyInfo">
+						<h4 style="color: white;">회사소개</h4>
+					</a>
+					<a class="nav-link px-lg-3 py-1 py-lg-5" href="javascript:homepageInfo()" id="homepageInfo">
+						<h4 style="color: white;">홈페이지 이용가이드</h4>
+					</a>
+					<c:choose>
+						<c:when test="${empty member}">
+							<a href="/member/login" class="nav-link px-lg-3 py-3 py-lg-6">
 								<b>로그인</b>
-							</a></li>
-					</c:when>
-					<c:when test="${!empty member}">
-						<li class="nav-item"><a href="#" class="nav-link px-lg-3 py-3 py-lg-6">
+							</a>
+						</c:when>
+						<c:when test="${!empty member}">
+							<a href="#" class="nav-link px-lg-3 py-3 py-lg-6">
 								<b><c:out value="${member.id}" />님 안녕하세요</b>
-							</a></li>
-					</c:when>
-				</c:choose> --%>
-			</ul>
-		</div>
-	</nav>
-	<!-- Page Header-->
-	<header class="masthead" style=" background-color: rgb(26, 90, 197); margin-bottom: 2px;">
-		<div class="container position-relative px-4 px-lg-5">
-			<div class="row gx-4 gx-lg-5">
-				<div class="col-md-10 col-lg-8 col-3">
-					<div class="site-heading">
-						<h1 style="margin: 20px;">Space Marine</h1>
-					</div>
+							</a>
+						</c:when>
+					</c:choose>
+				</nav>
+				<div class="site-heading">
+					<a href="/board/main">
+						<img src="${pageContext.request.contextPath}/resources/images/KoraFlag.jpg" width="120px;" height="120px;"
+							style="float: left; margin: 10px; margin-left: 20px;"
+						>
+					</a>
+					<h1 style="margin-top: 25px;">Space Marine</h1>
 				</div>
+
 			</div>
 		</div>
 	</header>
