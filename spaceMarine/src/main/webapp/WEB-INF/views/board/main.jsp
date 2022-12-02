@@ -22,11 +22,25 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="${pageContext.request.contextPath}/resources/main/css/styles.css" rel="stylesheet" />
 <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+<style type="text/css">
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+}
+</style>
 </head>
 <body>
 	<!-- Header-->
 	<%@ include file="../../common/header.jsp"%>
-	
+
 
 	<!-- SideBar -->
 	<%@ include file="../../common/side.jsp"%>
@@ -60,8 +74,26 @@
 					</a></td>
 			</tr>
 		</c:forEach>
-
 	</table>
+	<div class="pull-right" style="clear: both;">
+		<ul class="paginate">
+			<c:if test="${pageMaker.prev}">
+				<li class="paginate_button previos"><a href="${pageMaker.startPage-1}"></a>이전</li>
+			</c:if>
+
+			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+				<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':''}"><a href="${num}">${num}</a></li>
+			</c:forEach>
+
+			<c:if test="${pageMaker.next}">
+				<li class="paginate_button next"><a href="${pageMaker.endPage-1}">다음</a></li>
+			</c:if>
+		</ul>
+	</div>
+	<form action="/board/main" method="get" id="actionForm">
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+	</form>
 	<!-- </main> -->
 
 	<div class="container px-4 px-lg-5" style="clear: both;">
@@ -87,6 +119,24 @@
 			var popOption = "width = 650px, height=550px, top=300px, left=300px, scrollbars=yes";
 			window.open(popUrl, popName, popOption)
 		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+
+					var actionForm = $("#actionForm");
+					$(".paginate_button a").on(
+							"click",
+							function(e) {
+								e.preventDefault();
+
+								console.log("click");
+								actionForm.find("input[name='pageNum']").val(
+										$(this).attr("href"));
+								actionForm.submit();
+							});
+
+				});
 	</script>
 </body>
 </html>

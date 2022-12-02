@@ -5,13 +5,28 @@
 <mapper namespace="com.spaceMarine.mapper.ProductMapper">
 	<select id="getList" resultType="com.spaceMarine.vo.ProductVO">
 		<![CDATA[
-			select * from Popup_Test
+			select code, product, note, unit, price from Popup_Test
 		]]>
 	</select>
 	
 	<select id="read">
 		<![CDATA[
-			select * from Popup_Test where code = #{code}
+			select code, product, note, unit, price from Popup_Test where code = #{code}
 		]]>
 	</select>
+	
+	<!-- 페이징 처리 -->
+	<select id="getListWithPaging" resultType="com.spaceMarine.vo.ProductVO">
+		<![CDATA[
+			SELECT code, product, note, unit, price from popup_test orders LIMIT #{pageNum},#{amount}
+		]]>
+	</select>
+	
+	<!-- 전체 데이터 개수 -->
+	<select id="getTotalCount" resultType="int">
+	<![CDATA[
+		SELECT COUNT(*) FROM popup_test WHERE code > 0
+		]]>
+	</select>
+	
 </mapper>

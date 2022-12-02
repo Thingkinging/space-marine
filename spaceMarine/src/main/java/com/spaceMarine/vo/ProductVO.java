@@ -6,7 +6,7 @@ import lombok.Data;
 public class ProductVO {
 
 	// 물품 리스트
-	private String code;
+	private int code;
 	private String product;
 	private String note;
 	private String unit;

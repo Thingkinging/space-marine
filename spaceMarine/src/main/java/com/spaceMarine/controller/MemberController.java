@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spaceMarine.service.MemberService;
 import com.spaceMarine.service.ProductService;
+import com.spaceMarine.vo.Criteria;
 import com.spaceMarine.vo.MemberVO;
 
 import lombok.AllArgsConstructor;
@@ -46,7 +47,7 @@ public class MemberController {
 	}
 
 	@PostMapping(value = "/login")
-	public String login(MemberVO memberVO, Model model) {
+	public String login(MemberVO memberVO, Model model, Criteria cri) {
 
 		memberVO = service.get(memberVO);
 
@@ -56,7 +57,7 @@ public class MemberController {
 		if (memberVO.getId() == null || memberVO.getPwd() == null) {
 			return "redirect:/";
 		} else {
-			model.addAttribute("list", productService.getList());
+			model.addAttribute("list", productService.getList(cri));
 			return "board/main";
 		}
 	}

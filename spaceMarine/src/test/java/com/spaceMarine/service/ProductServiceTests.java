@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.spaceMarine.vo.Criteria;
+
 import lombok.extern.log4j.Log4j;
 
 @Log4j
@@ -18,7 +20,8 @@ public class ProductServiceTests {
 
 	@Test
 	public void testGetList() {
-		service.getList().forEach(list -> log.info(list));
+		Criteria cri = new Criteria();
+		service.getList(cri).forEach(list -> log.info(list));
 	}
 
 	@Test

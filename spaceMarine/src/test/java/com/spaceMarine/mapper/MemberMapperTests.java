@@ -20,4 +20,5 @@ public class MemberMapperTests {
 	public void testGetList() {
 		log.info(mapper);
 	}
+
 }

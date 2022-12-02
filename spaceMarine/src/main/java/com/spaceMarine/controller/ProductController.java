@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spaceMarine.dto.PageDTO;
 import com.spaceMarine.service.MemberService;
 import com.spaceMarine.service.ProductService;
+import com.spaceMarine.vo.Criteria;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,10 +27,17 @@ public class ProductController {
 	private MemberService memberService;
 
 	@GetMapping("/main")
-	public void list(Model model) {
-		log.info("main.........");
+	public void list(Criteria cri, Model model) {
+		log.info("main........." + cri);
 
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+
+		Integer total = service.getTotalCount(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 	}
 
