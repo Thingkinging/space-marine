@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductVO get(String code) {
+	public ProductVO getCode(String code) {
 		log.info("code..........." + code);
 		return mapper.read(code);
 	}
@@ -34,6 +34,12 @@ public class ProductServiceImpl implements ProductService {
 	public Integer getTotalCount(Criteria cri) {
 		log.info("get total count.......");
 		return mapper.getTotalCount(cri);
+	}
+
+	@Override
+	public ProductVO getPrice(String price) {
+		log.info("price..........." + price);
+		return mapper.read(price);
 	}
 
 }

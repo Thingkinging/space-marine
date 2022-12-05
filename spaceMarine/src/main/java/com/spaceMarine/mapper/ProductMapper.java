@@ -11,7 +11,7 @@ public interface ProductMapper {
 	public List<ProductVO> getList();
 
 	// R
-	public ProductVO read(String code);
+	public ProductVO read(String price);
 
 	// 페이징 처리
 	public List<ProductVO> getListWithPaging(Criteria cri);

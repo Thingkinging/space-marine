@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<table>
+	<!-- 	<table>
 		<tr>
 			<td>가격 정보</td>
 		</tr>
@@ -34,9 +34,27 @@
 		<tr>
 			<td></td>
 		</tr>
+	</table> -->
+	<table class="table table-bordered" style="float: left; width: 70%; margin-top: 30px; table-layout: fixed; text-align: center;">
+		<thead>
+			<tr>
+				<th scope="col" width="15%">코드번호</th>
+				<th scope="col" width="35%">제품</th>
+				<th scope="col" width="20%">비고</th>
+				<th scope="col" width="10%">단위</th>
+				<th scope="col" width="20%">가격(WON)</th>
+			</tr>
+		</thead>
+		<tr>
+			<td><c:out value="${list.code}" /></td>
+			<td><c:out value="${list.product}"></c:out></td>
+			<td><c:out value="${list.note}"></c:out></td>
+			<td><c:out value="${list.unit}"></c:out></td>
+			<td><c:out value="${list.price}" /></td>
+		</tr>
 	</table>
 
-	<table>
+	<!-- <table>
 		<tr>
 			<td>제품 설명</td>
 			<td>러닝머신, treadmill (running machine), foldable</td>
@@ -49,6 +67,6 @@
 			<td>비고</td>
 			<td>2023-01</td>
 		</tr>
-	</table>
+	</table> -->
 </body>
 </html>

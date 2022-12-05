@@ -41,33 +41,35 @@ public class ProductController {
 
 	}
 
-	@GetMapping("/popup")
+	@GetMapping("/codeInfo")
 	public String pop() {
-		log.info("codeInfo.......");
+		log.info("get codeInfo.......");
 		return "/popup/codeInfo";
 	}
 
-	@GetMapping("/info")
-	public String info() {
-		log.info("priceInfo.......");
+	@GetMapping("/priceInfo")
+	public String priceInfo(String price, Model model) {
+		log.info("get priceInfo.......");
+		model.addAttribute("list", service.getPrice(price));
 		return "/popup/priceInfo";
+
 	}
 
 	@GetMapping("/companyInfo")
 	public String companyInfo() {
-		log.info("companyInfo.......");
+		log.info("get companyInfo.......");
 		return "/popup/companyInfo";
 	}
 
 	@GetMapping("/homepageInfo")
 	public String homepageInfo() {
-		log.info("homepageInfo.......");
+		log.info("get homepageInfo.......");
 		return "/popup/homepageInfo";
 	}
 
 	@GetMapping("/page1")
 	public String sidePage() {
-		log.info("page1........");
+		log.info("get page1........");
 		return "/sidePage/page1";
 	}
 

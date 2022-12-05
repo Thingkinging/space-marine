@@ -9,9 +9,9 @@
 		]]>
 	</select>
 	
-	<select id="read">
+	<select id="read" resultType="com.spaceMarine.vo.ProductVO">
 		<![CDATA[
-			select code, product, note, unit, price from Popup_Test where code = #{code}
+			select code, product, note, unit, price from Popup_Test where price = #{price}
 		]]>
 	</select>
 	

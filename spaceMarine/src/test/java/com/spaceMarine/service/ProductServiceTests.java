@@ -26,6 +26,6 @@ public class ProductServiceTests {
 
 	@Test
 	public void testOneList() {
-		log.info(service.get("1"));
+		log.info(service.getCode("1"));
 	}
 }
