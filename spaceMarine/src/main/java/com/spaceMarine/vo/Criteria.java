@@ -12,6 +12,10 @@ public class Criteria {
 	private int pageNum;
 	private int amount;
 
+	// 검색처리 추가
+	private String type;
+	private String keyword;
+
 	public Criteria() {
 		this(1, 15);
 	}
@@ -19,6 +23,11 @@ public class Criteria {
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
+	}
+
+	// 검색처리 추가
+	public String[] getTypeArr() {
+		return type == null ? new String[] {} : type.split("");
 	}
 
 }

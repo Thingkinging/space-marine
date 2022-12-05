@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spaceMarine.dto.PageDTO;
+import com.spaceMarine.service.CategoryService;
 import com.spaceMarine.service.MemberService;
 import com.spaceMarine.service.ProductService;
 import com.spaceMarine.vo.Criteria;
@@ -26,12 +27,16 @@ public class ProductController {
 	@Autowired
 	private MemberService memberService;
 
+	@Autowired
+	CategoryService categoryService;
+
 	@GetMapping("/main")
 	public void list(Criteria cri, Model model) {
 		log.info("main........." + cri);
 
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		model.addAttribute("category", categoryService.getList());
 
 		Integer total = service.getTotalCount(cri);
 
