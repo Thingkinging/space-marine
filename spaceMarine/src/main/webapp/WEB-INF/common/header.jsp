@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>header</title>
 <link rel="icon" type="${pageContext.request.contextPath}/resources/main/image/x-icon"
 	href="${pageContext.request.contextPath}/resources/main/assets/favicon.ico"

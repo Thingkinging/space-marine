@@ -16,7 +16,7 @@
 	</insert>
 	
 	<select id="read" resultType="com.spaceMarine.vo.CategoryVO">
-		select * from category where LVL_LVL = #{LVL_LVL}
+		select * from category where bigcode = #{bigcode}
 	</select>
 
 </mapper>

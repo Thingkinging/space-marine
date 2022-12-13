@@ -9,29 +9,43 @@
 		]]>
 	</select>
 
-	<select id="read" resultType="com.spaceMarine.vo.ItemVO">
-		<![CDATA[
-			select IMPA_CD, ITEM_NM_KO, ITEM_NM_EN, UNIT, ADD_COL1 from item where IMPA_CD = #{IMPA_CD}
-		]]>
-	</select>
-
 	<!-- 페이징 처리 -->
 	<select id="getListWithPaging"
-		resultType="com.spaceMarine.vo.ItemVO">  
-		<![CDATA[
-			SELECT * from
-(SELECT IMPA_CD, ITEM_NM_KO, ITEM_NM_EN, UNIT, ADD_COL1, @ROWNUM:=@ROWNUM+1 AS RN FROM item, (SELECT @ROWNUM:=0) AS R ) T LIMIT 0,14 
-		]]>
+		resultType="com.spaceMarine.vo.ItemVO">
+		SELECT * from item WHERE
+		IMPA_CD > 0
+		<if test="type == 'T'.toString()">
+			and ITEM_NM_KO like concat('%',#{keyword},'%')
+		</if>
+		<if test="type == 'T'.toString()">
+			and ITEM_NM_EN like concat('%',#{keyword},'%')
+		</if>
+		<if test="type == 'T'.toString()">
+			and ITEM_NM_SP like concat('%',#{keyword},'%')
+		</if>
+		<if test="type == 'T'.toString()">
+			and ITEM_NM_JP like concat('%',#{keyword},'%')
+		</if>
+		<if test="type == 'T'.toString()">
+			and ITEM_NM_CN like concat('%',#{keyword},'%')
+		</if>
+		<if test="type == 'T'.toString()">
+			and ITEM_NM_RS like concat('%',#{keyword},'%')
+		</if>
+		<if test="type == 'C'.toString()">
+			and IMPA_CD like concat('%',#{keyword},'%')
+		</if>
+		LIMIT 0,15
 	</select>
-
 
 
 	<!-- 전체 데이터 개수 -->
 	<select id="getTotalCount" resultType="int">
-	<![CDATA[
-		SELECT COUNT(*) FROM item WHERE IMPA_CD > 0
-		]]>
+		SELECT COUNT(*) FROM item WHERE
+		IMPA_CD > 0
 	</select>
+
+
 
 
 </mapper>

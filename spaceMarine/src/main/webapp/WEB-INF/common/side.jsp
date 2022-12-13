@@ -65,7 +65,6 @@ ul {
 </style>
 <style type="text/css">
 /*세로형 메뉴*/
-
 #menu2 a {
 	display: block;
 	color: #fff;
@@ -144,45 +143,11 @@ ul {
 		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
 			<hr>
 			<c:forEach var="category" items="${category}">
-				<div id="menu2">
-					<ul class="M01">
-						<li><a href="#">${category.ctgr_no }</a>
-							<ul class="M02">
-								<li><a href="#">${category.ctgr_nm_en}</a>
-									<ul class="M03">
-										<li><a>${category.ctgr_nm_ko}</a></li>
-									</ul></li>
-							</ul></li>
-					</ul>
-				</div>
+				<ul>
+					<li><a href="#">${category.big_cd}</a></li>
+				</ul>
+
 			</c:forEach>
-			<%-- <c:forEach var="category" items="${category}" begin="160" end="175" step="1">
-				<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home"
-					aria-expanded="false" style="color: white;"
-				>
-					<c:if test="${!empty category.ctgr_nm_en}">
-						<h5>
-							<c:out value="${category.ctgr_nm_ko }" />
-						</h5>
-					</c:if>
-				</button>
-				<c:if test="${!empty category.ctgr_no}">
-					<div class="collapse" id="home">
-						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-							<li>&emsp;<a href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse"
-									data-bs-target="#home1'" aria-expanded="false" style="color: white;"
-								>
-									<h5>${category.ctgr_old_cd}</h5>
-								</a>
-								<div class="collapse" id="home1">
-									<ul>
-										<li>&emsp;<a href="/board/page1" class="link-dark d-inline-flex text-decoration-none border-0 rounded" style="color: white">v넥</a></li>
-									</ul>
-								</div></li>
-						</ul>
-					</div>
-				</c:if>
-			</c:forEach> --%>
 		</div>
 
 	</div>

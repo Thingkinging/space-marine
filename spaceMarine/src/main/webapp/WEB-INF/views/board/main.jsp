@@ -55,8 +55,17 @@
 	<!-- <main class="d-flex flex-nowrap"> -->
 
 	<div style="width: 70%; margin-top: 20px;" align="center">
-		<input type="text" value="" name="">
-		<button type="submit">검색</button>
+		<form action="/board/main" method="get" id="searchForm">
+			<select name="type">
+				<option value="" <c:out value='${pageMaker.cri.type == null?"selected" : ""}'/>>--</option>
+				<option value="T" <c:out value='${pageMaker.cri.type eq "T"?"selected" : ""}'/>>제품</option>
+				<option value="C" <c:out value='${pageMaker.cri.type eq "C"?"selected" : ""}'/>>코드번호</option>
+			</select>
+			<input type="text" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>">
+			<input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>">
+			<input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>">
+			<button class="btn btn-default">검색</button>
+		</form>
 	</div>
 	<form name="myForm">
 		<table class="table table-bordered" style="float: left; width: 70%; margin-top: 30px; table-layout: fixed; text-align: center;">
@@ -72,14 +81,15 @@
 			<c:forEach var="list" items="${list}">
 				<tr>
 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
-							<c:out value="${list.impa_cd}" />
+							<c:out value="${list.IMPA_CD}" />
 						</a></td>
-					<td><c:out value="${list.item_nm_ko}"></c:out></td>
-					<td><c:out value="${list.item_nm_en}"></c:out></td>
-					<td><c:out value="${list.unit}"></c:out></td>
+					<td><c:out value="${list.ITEM_NM_KO}"></c:out>
+					</td>
+					<td><c:out value="${list.ITEM_NM_EN}"></c:out></td>
+					<td><c:out value="${list.ADD_COL3}"></c:out></td>
 
 					<td><a class="move" href="javascript:priceInfo()" id="priceInfo">
-							<c:out value="${list.add_col1}" />
+							<c:out value="${list.UNIT}" />
 						</a></td>
 				</tr>
 			</c:forEach>
@@ -102,8 +112,10 @@
 		</ul>
 	</div>
 	<form action="/board/main" method="get" id="actionForm">
-		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+		<input type="hidden" name="type" value="<c:out value='${pageMaker.cri.type}'/>">
+		<input type="hidden" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>">
 	</form>
 	<div class="container px-4 px-lg-5" style="clear: both;"></div>
 	<!-- Footer-->

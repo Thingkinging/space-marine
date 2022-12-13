@@ -24,12 +24,9 @@
 			<div class="row gx-4 gx-lg-5 justify-content-center">
 				<div class="col-md-10 col-lg-8 col-xl-7">
 					<ul class="list-inline text-center">
-						<li class="list-inline-item"><a href="#!">
-							</a></li>
-						<li class="list-inline-item"><a href="#!">
-							</a></li>
-						<li class="list-inline-item"><a href="#!">
-							</a></li>
+						<li class="list-inline-item"><a href="#!"> </a></li>
+						<li class="list-inline-item"><a href="#!"> </a></li>
+						<li class="list-inline-item"><a href="#!"> </a></li>
 					</ul>
 					<div class="small text-center text-muted fst-italic"></div>
 				</div>
@@ -37,7 +34,9 @@
 		</div>
 	</footer>
 	<!-- Bootstrap core JS-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"
+	></script>
 	<!-- Core theme JS-->
 	<script src="${pageContext.request.contextPath}/resources/main/js/scripts.js"></script>
 </body>
