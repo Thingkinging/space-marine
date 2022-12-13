@@ -63,7 +63,59 @@ ul {
 	list-style: none;
 }
 </style>
+<style type="text/css">
+/*세로형 메뉴*/
 
+#menu2 a {
+	display: block;
+	color: #fff;
+}
+
+.M01 {
+	width: 70px;
+	background: #000;
+}
+
+.M01>li, .M02>li, .M03>li {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background: #000;
+	text-align: center;
+	line-height: 50px;
+}
+
+.M01>li:hover .M02 {
+	left: 40px;
+}
+
+.M01>li a:hover {
+	display: block;
+	background: #AB06AD;
+}
+
+.M02, .M03 {
+	width: 100px;
+	background: black;
+	position: absolute;
+	top: 0;
+	left: -9999px;
+}
+
+.M02>li:hover .M03 {
+	left: 100px;
+}
+
+.M02>li a:hover {
+	display: block;
+	background: red;
+}
+
+.M03>li a:hover {
+	display: block;
+	background: blue;
+}
+</style>
 
 <!-- Custom styles for this template -->
 <link href="${pageContext.request.contextPath}/resources/main/css/sidebars.css" rel="stylesheet">
@@ -89,9 +141,22 @@ ul {
 
 
 		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
-		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh; padding-left: 10px;">
+		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
 			<hr>
-			<c:forEach var="category" items="${category}" begin="160" end="175" step="1">
+			<c:forEach var="category" items="${category}">
+				<div id="menu2">
+					<ul class="M01">
+						<li><a href="#">${category.ctgr_no }</a>
+							<ul class="M02">
+								<li><a href="#">${category.ctgr_nm_en}</a>
+									<ul class="M03">
+										<li><a>${category.ctgr_nm_ko}</a></li>
+									</ul></li>
+							</ul></li>
+					</ul>
+				</div>
+			</c:forEach>
+			<%-- <c:forEach var="category" items="${category}" begin="160" end="175" step="1">
 				<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home"
 					aria-expanded="false" style="color: white;"
 				>
@@ -117,7 +182,7 @@ ul {
 						</ul>
 					</div>
 				</c:if>
-			</c:forEach>
+			</c:forEach> --%>
 		</div>
 
 	</div>
@@ -126,7 +191,33 @@ ul {
 
 
 	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
+	<script>
+		const root = document.getElementById('root');
+		function createTreeView(menu, currentNode) {
+			// TODO: createTreeView 함수를 작성하세요.
 
+			for (let i = 0; i < menu.length; i++) {
+				const li = document.createElement("li");
+				const ul = document.createElement("ul");
+				const input = document.createElement("input");
+				const span = document.createElement("span");
+
+				if (menu[i].children === undefined) {
+					currentNode.append(li);
+					li.textContent = `${menu[i].name}`;
+				} else {
+					currentNode.append(li);
+					li.append(input, span, ul);
+					input.setAttribute("type", "checkbox");
+					span.textContent = `${menu[i].name}`;
+
+					createTreeView(menu[i].children, ul);
+				}
+			}
+		}
+
+		createTreeView(menu, root);
+	</script>
 	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>
 </html>

@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="/">
+	<c:param name="myForm" value="list"></c:param>
+</c:import>
 	<!-- 	<table>
 		<tr>
 			<td>가격 정보</td>
@@ -45,14 +48,23 @@
 				<th scope="col" width="20%">가격(WON)</th>
 			</tr>
 		</thead>
+		<c:choose>
+			<c:when test="${!empty list}">
+				<td><c:out value="${list.code}" /></td>
+				<td><c:out value="${list.product}"></c:out></td>
+				<td><c:out value="${list.note}"></c:out></td>
+				<td><c:out value="${list.unit}"></c:out></td>
+				<td><c:out value="${list.price}" /></td>
+			</c:when>
+			<c:when test="${empty list}">
+				<td colspan="5"><h2>현재 상품이 없습니다.</h2>
+			</c:when>
+		</c:choose>
 		<tr>
-			<td><c:out value="${list.code}" /></td>
-			<td><c:out value="${list.product}"></c:out></td>
-			<td><c:out value="${list.note}"></c:out></td>
-			<td><c:out value="${list.unit}"></c:out></td>
-			<td><c:out value="${list.price}" /></td>
 		</tr>
 	</table>
+
+
 
 	<!-- <table>
 		<tr>

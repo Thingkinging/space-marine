@@ -58,31 +58,33 @@
 		<input type="text" value="" name="">
 		<button type="submit">검색</button>
 	</div>
-	<table class="table table-bordered" style="float: left; width: 70%; margin-top: 30px; table-layout: fixed; text-align: center;">
-		<thead>
-			<tr>
-				<th scope="col" width="15%">코드번호</th>
-				<th scope="col" width="35%">제품</th>
-				<th scope="col" width="20%">비고</th>
-				<th scope="col" width="10%">단위</th>
-				<th scope="col" width="20%">가격(WON)</th>
-			</tr>
-		</thead>
-		<c:forEach var="list" items="${list}">
-			<tr>
-				<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
-						<c:out value="${list.code}" />
-					</a></td>
-				<td><c:out value="${list.product}"></c:out></td>
-				<td><c:out value="${list.note}"></c:out></td>
-				<td><c:out value="${list.unit}"></c:out></td>
+	<form name="myForm">
+		<table class="table table-bordered" style="float: left; width: 70%; margin-top: 30px; table-layout: fixed; text-align: center;">
+			<thead>
+				<tr>
+					<th scope="col" width="15%">코드번호</th>
+					<th scope="col" width="35%">제품</th>
+					<th scope="col" width="20%">비고</th>
+					<th scope="col" width="10%">단위</th>
+					<th scope="col" width="20%">가격(WON)</th>
+				</tr>
+			</thead>
+			<c:forEach var="list" items="${list}">
+				<tr>
+					<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
+							<c:out value="${list.impa_cd}" />
+						</a></td>
+					<td><c:out value="${list.item_nm_ko}"></c:out></td>
+					<td><c:out value="${list.item_nm_en}"></c:out></td>
+					<td><c:out value="${list.unit}"></c:out></td>
 
-				<td><a href="javascript:priceInfo()" id="priceInfo">
-						<c:out value="${list.price}" />
-					</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+					<td><a class="move" href="javascript:priceInfo()" id="priceInfo">
+							<c:out value="${list.add_col1}" />
+						</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</form>
 
 	<div style="margin-left: 35%;">
 		<ul class="pagination" style="list-style: none; float: left; display: inline;">
@@ -121,8 +123,6 @@
 			var popName = "priceInfo";
 			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
 			window.open(popUrl, popName, popOption);
-
-
 		}
 	</script>
 	<script type="text/javascript">

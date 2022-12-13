@@ -25,9 +25,4 @@ public class Criteria {
 		this.amount = amount;
 	}
 
-	// 검색처리 추가
-	public String[] getTypeArr() {
-		return type == null ? new String[] {} : type.split("");
-	}
-
 }

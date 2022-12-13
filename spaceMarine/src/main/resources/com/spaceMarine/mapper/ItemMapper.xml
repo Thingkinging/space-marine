@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spaceMarine.mapper.ItemMapper">
+	<select id="getList" resultType="com.spaceMarine.vo.ItemVO">
+		<![CDATA[
+			select IMPA_CD, ITEM_NM_KO, ITEM_NM_EN, UNIT, ADD_COL1 from item
+		]]>
+	</select>
+
+	<select id="read" resultType="com.spaceMarine.vo.ItemVO">
+		<![CDATA[
+			select IMPA_CD, ITEM_NM_KO, ITEM_NM_EN, UNIT, ADD_COL1 from item where IMPA_CD = #{IMPA_CD}
+		]]>
+	</select>
+
+	<!-- 페이징 처리 -->
+	<select id="getListWithPaging"
+		resultType="com.spaceMarine.vo.ItemVO">  
+		<![CDATA[
+			SELECT * from
+(SELECT IMPA_CD, ITEM_NM_KO, ITEM_NM_EN, UNIT, ADD_COL1, @ROWNUM:=@ROWNUM+1 AS RN FROM item, (SELECT @ROWNUM:=0) AS R ) T LIMIT 0,14 
+		]]>
+	</select>
+
+
+
+	<!-- 전체 데이터 개수 -->
+	<select id="getTotalCount" resultType="int">
+	<![CDATA[
+		SELECT COUNT(*) FROM item WHERE IMPA_CD > 0
+		]]>
+	</select>
+
+
+</mapper>

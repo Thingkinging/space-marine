@@ -13,10 +13,10 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-public class ProductServiceTests {
+public class ItemServiceTests {
 
 	@Autowired
-	private ProductService service;
+	private ItemService service;
 
 	@Test
 	public void testGetList() {
@@ -24,8 +24,4 @@ public class ProductServiceTests {
 		service.getList(cri).forEach(list -> log.info(list));
 	}
 
-	@Test
-	public void testOneList() {
-		log.info(service.getCode("1"));
-	}
 }

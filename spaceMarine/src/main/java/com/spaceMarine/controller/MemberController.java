@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spaceMarine.service.MemberService;
-import com.spaceMarine.service.ProductService;
+import com.spaceMarine.service.ItemService;
 import com.spaceMarine.vo.Criteria;
 import com.spaceMarine.vo.MemberVO;
 
@@ -25,7 +25,7 @@ public class MemberController {
 	private MemberService service;
 
 	@Autowired
-	private ProductService productService;
+	private ItemService productService;
 
 	@GetMapping("/register")
 	public void register() {

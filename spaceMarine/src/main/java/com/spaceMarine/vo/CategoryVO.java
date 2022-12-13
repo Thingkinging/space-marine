@@ -6,20 +6,16 @@ import lombok.Data;
 
 @Data
 public class CategoryVO {
-	private int ctgr_no; // pk
-	private String ctgr_old_cd;
-	private int ctgr_pno;
-	private String ctgr_nm_ko;
-	private String ctgr_nm_cn;
-	private String ctgr_nm_jp;
-	private String ctgr_nm_en;
-	private String ctgr_nm_sp;
-	private String ctgr_nm_ru;
-	private int ctgr_seq;
-	private char use_yn;
-	private String ins_id;
-	private Date ins_dt;
-	private String upd_id;
-	private Date upd_dt;
+	private int LVL_LVL; // pk
+	private String LVL_CD;
+	private String LVL_NM_KO;
+	private String LVL_NM_ENG;
+	private String H_LVL_CD;
+	private int LVL_SEQ;
+	private String USE_YN;
+	private String INS_ID;
+	private Date INS_DT;
+	private String UPD_ID;
+	private Date UPD_DT;
 
 }

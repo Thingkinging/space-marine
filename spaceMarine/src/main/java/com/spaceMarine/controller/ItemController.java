@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spaceMarine.dto.PageDTO;
 import com.spaceMarine.service.CategoryService;
+import com.spaceMarine.service.ItemService;
 import com.spaceMarine.service.MemberService;
-import com.spaceMarine.service.ProductService;
 import com.spaceMarine.vo.Criteria;
 
 import lombok.AllArgsConstructor;
@@ -19,10 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/board/*")
 @AllArgsConstructor
-public class ProductController {
+public class ItemController {
 
 	@Autowired
-	private ProductService service;
+	private ItemService service;
 
 	@Autowired
 	private MemberService memberService;
@@ -36,7 +36,7 @@ public class ProductController {
 
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-		model.addAttribute("category", categoryService.getList());
+//		model.addAttribute("category", categoryService.getList());
 
 		Integer total = service.getTotalCount(cri);
 
@@ -52,13 +52,13 @@ public class ProductController {
 		return "/popup/codeInfo";
 	}
 
-	@GetMapping("/priceInfo")
-	public String priceInfo(String price, Model model) {
-		log.info("get priceInfo.......");
-		model.addAttribute("list", service.getPrice(price));
-		return "/popup/priceInfo";
-
-	}
+//	@GetMapping("/priceInfo")
+//	public String priceInfo(ItemVO productVO, String price, Model model) {
+//		log.info("priceInfo.......");
+//		model.addAttribute("list", service.getPrice(productVO));
+//		return "/popup/priceInfo";
+//
+//	}
 
 	@GetMapping("/companyInfo")
 	public String companyInfo() {
