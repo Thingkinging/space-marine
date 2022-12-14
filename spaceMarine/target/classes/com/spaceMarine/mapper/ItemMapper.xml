@@ -5,8 +5,12 @@
 <mapper namespace="com.spaceMarine.mapper.ItemMapper">
 	<select id="getList" resultType="com.spaceMarine.vo.ItemVO">
 		<![CDATA[
-			select IMPA_CD, ITEM_NM_KO, ITEM_NM_EN, UNIT, ADD_COL1 from item
+			select distinct * from item
 		]]>
+	</select>
+	
+	<select id="read" resultType="com.spaceMarine.vo.ItemVO">
+			select * from item where IMPA_CD = #{IMPA_CD}
 	</select>
 
 	<!-- 페이징 처리 -->
@@ -14,7 +18,27 @@
 		resultType="com.spaceMarine.vo.ItemVO">
 		SELECT * from item WHERE
 		IMPA_CD > 0
-		<if test="type == 'T'.toString()">
+		<choose>
+			<when test="type == 'T'.toString()">
+				and ITEM_NM_KO like concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'T'.toString()">
+				and ITEM_NM_EN like concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'T'.toString()">
+				and ITEM_NM_SP like concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'T'.toString()">
+				and ITEM_NM_JP like concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'T'.toString()">
+				and ITEM_NM_CN like concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'T'.toString()">
+				and ITEM_NM_RS like concat('%',#{keyword},'%')
+			</when>
+		</choose>
+<!-- 		<if test="type == 'T'.toString()">
 			and ITEM_NM_KO like concat('%',#{keyword},'%')
 		</if>
 		<if test="type == 'T'.toString()">
@@ -34,7 +58,7 @@
 		</if>
 		<if test="type == 'C'.toString()">
 			and IMPA_CD like concat('%',#{keyword},'%')
-		</if>
+		</if> -->
 		LIMIT 0,15
 	</select>
 
@@ -44,6 +68,11 @@
 		SELECT COUNT(*) FROM item WHERE
 		IMPA_CD > 0
 	</select>
+	
+	<select id="big_cd" resultType="com.spaceMarine.vo.ItemVO">
+		SELECT distinct LVL1_CD FROM item
+	</select>
+	
 
 
 

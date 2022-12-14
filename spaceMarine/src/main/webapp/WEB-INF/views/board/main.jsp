@@ -58,6 +58,7 @@
 		<form action="/board/main" method="get" id="searchForm">
 			<select name="type">
 				<option value="" <c:out value='${pageMaker.cri.type == null?"selected" : ""}'/>>--</option>
+				<c:if test=""></c:if>
 				<option value="T" <c:out value='${pageMaker.cri.type eq "T"?"selected" : ""}'/>>제품</option>
 				<option value="C" <c:out value='${pageMaker.cri.type eq "C"?"selected" : ""}'/>>코드번호</option>
 			</select>
@@ -80,12 +81,14 @@
 			</thead>
 			<c:forEach var="list" items="${list}">
 				<tr>
+					<!-- 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo"> -->
 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
 							<c:out value="${list.IMPA_CD}" />
+							<input type="hidden" name="codeInfo" id="codeInfo" value="<c:out value="${list.IMPA_CD}" />">
 						</a></td>
-					<td><c:out value="${list.ITEM_NM_KO}"></c:out>
-					</td>
-					<td><c:out value="${list.ITEM_NM_EN}"></c:out></td>
+					<td><c:out value="${list.ITEM_NM_KO}">
+						</c:out></td>
+					<td><c:out value="${list.DESCRIPTION}"></c:out></td>
 					<td><c:out value="${list.ADD_COL3}"></c:out></td>
 
 					<td><a class="move" href="javascript:priceInfo()" id="priceInfo">
@@ -126,7 +129,13 @@
 			var popUrl = "/board/codeInfo";
 			var popName = "codeInfo";
 			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
-			window.open(popUrl, popName, popOption)
+			window.open("", popName, popOption);
+
+			myForm.target = popName;
+			myForm.action = popUrl;
+			myForm.method = "post";
+			myForm.submit();
+
 		}
 	</script>
 	<script type="text/javascript">
@@ -137,24 +146,6 @@
 			window.open(popUrl, popName, popOption);
 		}
 	</script>
-	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					var actionForm = $("#actionForm");
-					$(".paginate_button a").on(
-							"click",
-							function(e) {
 
-								e.preventDefault();
-
-								console.log('click');
-
-								actionForm.find("input[name='pageNum']").val(
-										$(this).attr("href"));
-								actionForm.submit();
-							});
-
-				});
-	</script>
 </body>
 </html>

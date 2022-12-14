@@ -19,6 +19,7 @@ public class ItemVO {
 	private String ADD_CD3;
 	private String ADD_CD4;
 	private String ITEM_NM_KO;
+	private String DESCRIPTION;
 	private String ITEM_NM_EN;
 	private String ITEM_NM_SP;
 	private String ITEM_NM_JP;

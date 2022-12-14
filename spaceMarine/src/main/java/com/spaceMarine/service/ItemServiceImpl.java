@@ -30,4 +30,15 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.getTotalCount(cri);
 	}
 
+	@Override
+	public ItemVO read(String impa_cd) {
+		log.info("Impa_cd.........");
+		return mapper.read(impa_cd);
+	}
+
+	@Override
+	public List<ItemVO> big_cd() {
+		return mapper.big_cd();
+	}
+
 }

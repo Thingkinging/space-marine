@@ -13,4 +13,8 @@ public interface ItemService {
 	// 전체 데이터 개수
 	public Integer getTotalCount(Criteria cri);
 
+	public ItemVO read(String impa_cd);
+
+	public List<ItemVO> big_cd();
+
 }

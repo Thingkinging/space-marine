@@ -63,58 +63,7 @@ ul {
 	list-style: none;
 }
 </style>
-<style type="text/css">
-/*세로형 메뉴*/
-#menu2 a {
-	display: block;
-	color: #fff;
-}
 
-.M01 {
-	width: 70px;
-	background: #000;
-}
-
-.M01>li, .M02>li, .M03>li {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	background: #000;
-	text-align: center;
-	line-height: 50px;
-}
-
-.M01>li:hover .M02 {
-	left: 40px;
-}
-
-.M01>li a:hover {
-	display: block;
-	background: #AB06AD;
-}
-
-.M02, .M03 {
-	width: 100px;
-	background: black;
-	position: absolute;
-	top: 0;
-	left: -9999px;
-}
-
-.M02>li:hover .M03 {
-	left: 100px;
-}
-
-.M02>li a:hover {
-	display: block;
-	background: red;
-}
-
-.M03>li a:hover {
-	display: block;
-	background: blue;
-}
-</style>
 
 <!-- Custom styles for this template -->
 <link href="${pageContext.request.contextPath}/resources/main/css/sidebars.css" rel="stylesheet">
@@ -142,9 +91,11 @@ ul {
 		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
 		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
 			<hr>
-			<c:forEach var="category" items="${category}">
-				<ul>
-					<li><a href="#">${category.big_cd}</a></li>
+			<c:forEach var="side" items="${side}">
+				<ul style="">
+				<li><a href="#" id="root" onclick="createTreeView()">
+					<c:out value="${side.LVL1_CD}" />
+				</a></li>
 				</ul>
 
 			</c:forEach>
@@ -157,31 +108,31 @@ ul {
 
 	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
 	<script>
-		const root = document.getElementById('root');
-		function createTreeView(menu, currentNode) {
-			// TODO: createTreeView 함수를 작성하세요.
+				const root = document.getElementById('root');
+				function createTreeView(menu, currentNode) {
+					// TODO: createTreeView 함수를 작성하세요.
 
-			for (let i = 0; i < menu.length; i++) {
-				const li = document.createElement("li");
-				const ul = document.createElement("ul");
-				const input = document.createElement("input");
-				const span = document.createElement("span");
+					for (let i = 0; i < menu.length; i++) {
+						const li = document.createElement("li");
+						const ul = document.createElement("ul");
+						const input = document.createElement("input");
+						const span = document.createElement("span");
 
-				if (menu[i].children === undefined) {
-					currentNode.append(li);
-					li.textContent = `${menu[i].name}`;
-				} else {
-					currentNode.append(li);
-					li.append(input, span, ul);
-					input.setAttribute("type", "checkbox");
-					span.textContent = `${menu[i].name}`;
+						if (menu[i].children === undefined) {
+							currentNode.append(li);
+							li.textContent = `${menu[i].name}`;
+						} else {
+							currentNode.append(li);
+							li.append(input, span, ul);
+							input.setAttribute("type", "checkbox");
+							span.textContent = `${menu[i].name}`;
 
-					createTreeView(menu[i].children, ul);
+							createTreeView(menu[i].children, ul);
+						}
+					}
 				}
-			}
-		}
 
-		createTreeView(menu, root);
+				createTreeView(menu, root);
 	</script>
 	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>

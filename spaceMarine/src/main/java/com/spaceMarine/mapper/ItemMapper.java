@@ -17,4 +17,6 @@ public interface ItemMapper {
 	// 전체 데이터의 개수 처리
 	public Integer getTotalCount(Criteria cri);
 
+	public List<ItemVO> big_cd();
+
 }
