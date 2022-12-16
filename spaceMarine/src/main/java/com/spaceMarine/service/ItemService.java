@@ -17,4 +17,7 @@ public interface ItemService {
 
 	public List<ItemVO> big_cd();
 
+	public List<ItemVO> middle_cd(String middle_cd);
+
+	public List<ItemVO> small_cd(String small_cd);
 }

@@ -56,12 +56,6 @@
 
 	<div style="width: 70%; margin-top: 20px;" align="center">
 		<form action="/board/main" method="get" id="searchForm">
-			<select name="type">
-				<option value="" <c:out value='${pageMaker.cri.type == null?"selected" : ""}'/>>--</option>
-				<c:if test=""></c:if>
-				<option value="T" <c:out value='${pageMaker.cri.type eq "T"?"selected" : ""}'/>>제품</option>
-				<option value="C" <c:out value='${pageMaker.cri.type eq "C"?"selected" : ""}'/>>코드번호</option>
-			</select>
 			<input type="text" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>">
 			<input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>">
 			<input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>">
@@ -117,7 +111,6 @@
 	<form action="/board/main" method="get" id="actionForm">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-		<input type="hidden" name="type" value="<c:out value='${pageMaker.cri.type}'/>">
 		<input type="hidden" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>">
 	</form>
 	<div class="container px-4 px-lg-5" style="clear: both;"></div>

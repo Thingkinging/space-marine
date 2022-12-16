@@ -12,6 +12,7 @@ import com.spaceMarine.dto.PageDTO;
 import com.spaceMarine.service.CategoryService;
 import com.spaceMarine.service.ItemService;
 import com.spaceMarine.vo.Criteria;
+import com.spaceMarine.vo.ItemVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,13 +30,15 @@ public class ItemController {
 	CategoryService categoryService;
 
 	@GetMapping("/main")
-	public void list(Criteria cri, Model model, String impa_cd) {
+	public void list(Criteria cri, Model model, String impa_cd, ItemVO itemVO) {
 		log.info("main........." + cri);
 
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 //		model.addAttribute("category", categoryService.getList());
 		model.addAttribute("side", service.big_cd());
+		model.addAttribute("side2", service.middle_cd(itemVO.getMiddle_cd()));
+		model.addAttribute("side3", service.small_cd(itemVO.getSmall_cd()));
 
 		model.addAttribute("impa", service.read(impa_cd));
 
@@ -48,9 +51,9 @@ public class ItemController {
 	}
 
 	@PostMapping("/codeInfo")
-	public String codeInfo(@RequestParam("codeInfo") String impa_cd, Model model) {
+	public String codeInfo(@RequestParam("codeInfo") String impa_cd, Model model, ItemVO itemVO) {
 		log.info("post codeInfo......." + impa_cd);
-		model.addAttribute("list", service.read(impa_cd));
+		model.addAttribute("list", service.read(itemVO.getIMPA_CD()));
 		return "/popup/codeInfo";
 	}
 

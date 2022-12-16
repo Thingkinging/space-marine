@@ -35,4 +35,10 @@ public class ItemVO {
 	private String UPD_ID;
 	private Date UPD_DT;
 
+	// 카테고리
+	private String big_cd;
+	private String middle_cd;
+	private String small_cd;
+	private String detail_cd;
+
 }

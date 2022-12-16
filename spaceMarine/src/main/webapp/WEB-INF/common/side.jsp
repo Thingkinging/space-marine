@@ -65,6 +65,78 @@ ul {
 </style>
 
 
+<style type="text/css">
+#menu {
+	height: 50px;
+	background: #fcc;
+}
+
+.main1 {
+	height: 100%;
+	margin: 0 auto;
+}
+
+.main1>li {
+	float: left;
+	width: 25%;
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+}
+
+.main1>li:hover .main2 {
+	left: 0;
+}
+
+.main1>li a {
+	display: block;
+}
+
+.main1>li a:hover {
+	background: #B21016;
+	color: #fff;
+	font-weight: bold;
+}
+
+.main2 {
+	position: absolute;
+	top: 50px;
+	left: -9999px;
+	background: #ccc;
+	width: 120%;
+}
+
+.main2>li {
+	position: relative;
+}
+
+.main2>li:hover .main3 {
+	left: 100%;
+}
+
+.main2>li a, .main3>li a {
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.main3 {
+	position: absolute;
+	top: 0;
+	background: #6BD089;
+	width: 80%;
+	left: -9999px;
+
+	/*left: 100%;*/
+
+	/*display: none;*/
+}
+
+.main3>li a:hover {
+	background: #085820;
+	color: #fff;
+}
+</style>
+
 <!-- Custom styles for this template -->
 <link href="${pageContext.request.contextPath}/resources/main/css/sidebars.css" rel="stylesheet">
 </head>
@@ -91,16 +163,28 @@ ul {
 		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
 		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
 			<hr>
-			<c:forEach var="side" items="${side}">
-				<ul style="">
-				<li><a href="#" id="root" onclick="createTreeView()">
-					<c:out value="${side.LVL1_CD}" />
-				</a></li>
-				</ul>
+			<!--가로형 3단 드롭다운 메뉴-->
 
-			</c:forEach>
+			<div id="menu">
+				<c:forEach var="size" items="${size}">
+					<ul class="main1">
+						<li><a href="#">
+								<c:out value="${size.LVL1_CD}" />
+							</a>
+							<ul class="main2">
+								<c:forEach var="size2" items="${size2}">
+									<li><a href="#"><c:out value="${size2.LVL2_CD}" /></a>
+										<ul class="main3">
+											<li><a href="#">2단소메뉴1</a></li>
+											<li><a href="#">2단소메뉴2</a></li>
+											<li><a href="#">2단소메뉴3</a></li>
+										</ul></li>
+								</c:forEach>
+							</ul></li>
+					</ul>
+				</c:forEach>
+			</div>
 		</div>
-
 	</div>
 
 
@@ -108,31 +192,31 @@ ul {
 
 	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
 	<script>
-				const root = document.getElementById('root');
-				function createTreeView(menu, currentNode) {
-					// TODO: createTreeView 함수를 작성하세요.
+		// 				const root = document.getElementById('root');
+		// 				function createTreeView(menu, currentNode) {
+		// 					// TODO: createTreeView 함수를 작성하세요.
 
-					for (let i = 0; i < menu.length; i++) {
-						const li = document.createElement("li");
-						const ul = document.createElement("ul");
-						const input = document.createElement("input");
-						const span = document.createElement("span");
+		// 					for (let i = 0; i < menu.length; i++) {
+		// 						const li = document.createElement("li");
+		// 						const ul = document.createElement("ul");
+		// 						const input = document.createElement("input");
+		// 						const span = document.createElement("span");
 
-						if (menu[i].children === undefined) {
-							currentNode.append(li);
-							li.textContent = `${menu[i].name}`;
-						} else {
-							currentNode.append(li);
-							li.append(input, span, ul);
-							input.setAttribute("type", "checkbox");
-							span.textContent = `${menu[i].name}`;
+		// 						if (menu[i].children === undefined) {
+		// 							currentNode.append(li);
+		// 							li.textContent = `${menu[i].name}`;
+		// 						} else {
+		// 							currentNode.append(li);
+		// 							li.append(input, span, ul);
+		// 							input.setAttribute("type", "checkbox");
+		// 							span.textContent = `${menu[i].name}`;
 
-							createTreeView(menu[i].children, ul);
-						}
-					}
-				}
+		// 							createTreeView(menu[i].children, ul);
+		// 						}
+		// 					}
+		// 				}
 
-				createTreeView(menu, root);
+		// 				createTreeView(menu, root);
 	</script>
 	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>
