@@ -72,6 +72,7 @@ ul {
 }
 
 .main1 {
+	width: 500px;
 	height: 100%;
 	margin: 0 auto;
 }
@@ -166,20 +167,16 @@ ul {
 			<!--가로형 3단 드롭다운 메뉴-->
 
 			<div id="menu">
-				<c:forEach var="size" items="${size}">
-					<ul class="main1">
-						<li><a href="#">
-								<c:out value="${size.LVL1_CD}" />
-							</a>
+				<c:forEach var="side" items="${side}">
+					<ul class="main1" style="display: inline-block;">
+						<li><a href="#"><c:out value="${side.LVL_LVL}"/> </a>
 							<ul class="main2">
-								<c:forEach var="size2" items="${size2}">
-									<li><a href="#"><c:out value="${size2.LVL2_CD}" /></a>
-										<ul class="main3">
-											<li><a href="#">2단소메뉴1</a></li>
-											<li><a href="#">2단소메뉴2</a></li>
-											<li><a href="#">2단소메뉴3</a></li>
-										</ul></li>
-								</c:forEach>
+								<li><a href="#"><c:out value="${side.LVL_CD}"/> </a>
+									<ul class="main3">
+										<li><a href="#">2단소메뉴1</a></li>
+										<li><a href="#">2단소메뉴2</a></li>
+										<li><a href="#">2단소메뉴3</a></li>
+									</ul></li>
 							</ul></li>
 					</ul>
 				</c:forEach>

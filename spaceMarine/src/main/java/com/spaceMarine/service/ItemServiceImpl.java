@@ -36,19 +36,4 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.read(impa_cd);
 	}
 
-	@Override
-	public List<ItemVO> big_cd() {
-		return mapper.big_cd();
-	}
-
-	@Override
-	public List<ItemVO> middle_cd(String middle_cd) {
-		return mapper.middle_cd(middle_cd);
-	}
-
-	@Override
-	public List<ItemVO> small_cd(String small_cd) {
-		return mapper.small_cd(small_cd);
-	}
-
 }

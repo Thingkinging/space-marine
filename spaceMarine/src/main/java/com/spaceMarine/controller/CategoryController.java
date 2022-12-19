@@ -24,7 +24,7 @@ public class CategoryController {
 	public void list(Model model) {
 		log.info("category.......");
 
-		model.addAttribute("category", service.getList());
+//		model.addAttribute("category", service.getList());
 	}
 
 }

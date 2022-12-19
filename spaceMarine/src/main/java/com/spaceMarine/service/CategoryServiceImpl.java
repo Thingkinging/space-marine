@@ -1,6 +1,8 @@
 package com.spaceMarine.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,16 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<CategoryVO> getList() {
+		Map<Integer, Integer> menuList = new HashMap<Integer, Integer>();
+		CategoryVO vo = new CategoryVO();
+		menuList.containsKey(vo);
+
 		return mapper.getList();
 	}
 
 	@Override
-	public CategoryVO getCtgr_no(int ctgr_no) {
-		return mapper.read(ctgr_no);
+	public CategoryVO Lvl_Lvl(int Lvl_Lvl) {
+		return mapper.read(Lvl_Lvl);
 	}
 
 }

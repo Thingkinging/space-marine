@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spaceMarine.dto.PageDTO;
 import com.spaceMarine.service.CategoryService;
 import com.spaceMarine.service.ItemService;
+import com.spaceMarine.vo.CategoryVO;
 import com.spaceMarine.vo.Criteria;
 import com.spaceMarine.vo.ItemVO;
 
@@ -30,15 +31,12 @@ public class ItemController {
 	CategoryService categoryService;
 
 	@GetMapping("/main")
-	public void list(Criteria cri, Model model, String impa_cd, ItemVO itemVO) {
+	public void list(Criteria cri, Model model, String impa_cd, ItemVO itemVO, CategoryVO lv) {
 		log.info("main........." + cri);
 
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-//		model.addAttribute("category", categoryService.getList());
-		model.addAttribute("side", service.big_cd());
-		model.addAttribute("side2", service.middle_cd(itemVO.getMiddle_cd()));
-		model.addAttribute("side3", service.small_cd(itemVO.getSmall_cd()));
+		model.addAttribute("side", categoryService.getList());
 
 		model.addAttribute("impa", service.read(impa_cd));
 

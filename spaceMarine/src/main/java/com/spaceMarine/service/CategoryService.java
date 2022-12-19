@@ -8,6 +8,6 @@ public interface CategoryService {
 
 	public List<CategoryVO> getList();
 
-	public CategoryVO getCtgr_no(int ctgr_no);
+	public CategoryVO Lvl_Lvl(int Lvl_Lvl);
 
 }

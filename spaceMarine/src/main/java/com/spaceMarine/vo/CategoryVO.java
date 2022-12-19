@@ -2,10 +2,15 @@ package com.spaceMarine.vo;
 
 import java.sql.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class CategoryVO {
+
 	private int LVL_LVL; // pk
 	private String LVL_CD; // pk
 	private String LVL_NM_KO;

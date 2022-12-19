@@ -51,48 +51,16 @@
 	<select id="big_cd" resultType="com.spaceMarine.vo.ItemVO">
 		WITH RECURSIVE cte AS
 		(
-		SELECT LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD FROM item
+		SELECT LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD, 1 AS item_level FROM item WHERE
+		LVL1_CD = #{LVL1_CD}
 		UNION all
-		SELECT a.LVL1_CD, a.LVL2_CD, a.LVL3_CD, a.LVL4_CD FROM item AS a
-		INNER JOIN cte AS b
-		ON a.LVL1_CD = b.LVL2_CD
+		SELECT a.LVL1_CD, a.LVL2_CD, a.LVL3_CD, a.LVL4_CD, b.item_level + 1 FROM
+		item AS a
+		INNER JOIN cte AS b ON a.LVL1_CD = b.LVL2_CD
 		)
-		SELECT DISTINCT LVL1_CD FROM cte;
+		SELECT DISTINCT LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD, item_level FROM cte;
 	</select>
 
-	<select id="middle_cd" resultType="com.spaceMarine.vo.ItemVO">
-		WITH RECURSIVE cte AS
-		(
-		SELECT
-		LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD FROM item WHERE LVL1_CD =
-		#{LVL1_CD}
-		UNION all
-		SELECT
-		a.LVL1_CD, a.LVL2_CD, a.LVL3_CD, a.LVL4_CD
-		FROM item AS a
-		INNER JOIN cte AS b
-		ON a.LVL1_CD = b.LVL2_CD
-		)
-		SELECT
-		LVL2_CD FROM cte;
 
-	</select>
-	<select id="small_cd" resultType="com.spaceMarine.vo.ItemVO">
-		WITH RECURSIVE cte AS
-		(
-		SELECT
-		LVL1_CD, LVL2_CD,LVL3_CD, LVL4_CD FROM item WHERE LVL1_CD = #{LVL1_CD}
-		AND
-		LVL2_CD = #{LVL2_CD}
-		UNION all
-		SELECT a.LVL1_CD, a.LVL2_CD,a.LVL3_CD,
-		a.LVL4_CD
-		FROM item AS a
-		INNER JOIN cte AS b
-		ON a.LVL1_CD = b.LVL2_CD
-		)
-		SELECT distinct LVL3_CD FROM cte;
-
-	</select>
 
 </mapper>
