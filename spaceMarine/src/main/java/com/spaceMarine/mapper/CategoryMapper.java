@@ -8,6 +8,8 @@ public interface CategoryMapper {
 
 	public CategoryVO read(int ctgr_no);
 
-	public List<CategoryVO> getList();
+	public List<CategoryVO> getList_LVL_CD();
+
+	public List<CategoryVO> getList_H_LVL_CD();
 
 }

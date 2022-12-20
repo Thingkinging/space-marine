@@ -15,13 +15,11 @@ import com.spaceMarine.vo.CategoryVO;
 import com.spaceMarine.vo.Criteria;
 import com.spaceMarine.vo.ItemVO;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 @RequestMapping("/board/*")
-@AllArgsConstructor
 public class ItemController {
 
 	@Autowired
@@ -36,9 +34,8 @@ public class ItemController {
 
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-		model.addAttribute("side", categoryService.getList());
-
-		model.addAttribute("impa", service.read(impa_cd));
+		model.addAttribute("side", categoryService.getList_LVL_CD());
+		model.addAttribute("side2", categoryService.getList_H_LVL_CD());
 
 		Integer total = service.getTotalCount(cri);
 

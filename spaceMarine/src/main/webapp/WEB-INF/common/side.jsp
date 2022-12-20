@@ -66,75 +66,129 @@ ul {
 
 
 <style type="text/css">
-#menu {
-	height: 50px;
-	background: #fcc;
-}
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
 
-.main1 {
-	width: 500px;
-	height: 100%;
-	margin: 0 auto;
-}
-
-.main1>li {
-	float: left;
-	width: 25%;
-	line-height: 50px;
-	text-align: center;
+#cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	display: block;
 	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.main1>li:hover .main2 {
-	left: 0;
+#cssmenu {
+	width: 80px;
+	font-family: Raleway, sans-serif;
+	color: #ffffff;
+	display: inline-table;
 }
 
-.main1>li a {
+#cssmenu ul ul {
+	display: none;
+}
+
+#cssmenu>ul>li.active>ul {
 	display: block;
 }
 
-.main1>li a:hover {
-	background: #B21016;
-	color: #fff;
-	font-weight: bold;
+.align-right {
+	float: right;
 }
 
-.main2 {
+#cssmenu>ul>li>a {
+	padding: 16px 22px;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 16px;
+	text-decoration: none;
+	color: #ffffff;
+/* 	background: #3ab4a6; */
+	-webkit-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+}
+
+#cssmenu>ul>li>a:hover {
+	color: #d8f3f0;
+}
+
+#cssmenu ul>li.has-sub>a:after {
 	position: absolute;
-	top: 50px;
-	left: -9999px;
-	background: #ccc;
-	width: 120%;
+	right: 26px;
+	top: 19px;
+	z-index: 5;
+	display: block;
+	height: 10px;
+	width: 2px;
+	background: #ffffff;
+	content: "";
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
 }
 
-.main2>li {
-	position: relative;
-}
-
-.main2>li:hover .main3 {
-	left: 100%;
-}
-
-.main2>li a, .main3>li a {
-	border-radius: 10px;
-	margin: 10px;
-}
-
-.main3 {
+#cssmenu ul>li.has-sub>a:before {
 	position: absolute;
-	top: 0;
-	background: #6BD089;
-	width: 80%;
-	left: -9999px;
-
-	/*left: 100%;*/
-
-	/*display: none;*/
+	right: 22px;
+	top: 23px;
+	display: block;
+	width: 10px;
+	height: 2px;
+	background: #ffffff;
+	content: "";
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
 }
 
-.main3>li a:hover {
-	background: #085820;
-	color: #fff;
+#cssmenu ul>li.has-sub.open>a:after, #cssmenu ul>li.has-sub.open>a:before
+	{
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#cssmenu ul ul li a {
+	padding: 14px 22px;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 14px;
+	text-decoration: none;
+	color: #dddddd;
+	background: #49505a;
+	-webkit-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+}
+
+#cssmenu ul ul ul li a {
+	padding-left: 32px;
+}
+
+#cssmenu ul ul li a:hover {
+	color: #ffffff;
+}
+
+#cssmenu ul ul>li.has-sub>a:after {
+	top: 16px;
+	right: 26px;
+	background: #dddddd;
+}
+
+#cssmenu ul ul>li.has-sub>a:before {
+	top: 20px;
+	background: #dddddd;
 }
 </style>
 
@@ -164,20 +218,55 @@ ul {
 		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
 		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
 			<hr>
-			<!--가로형 3단 드롭다운 메뉴-->
 
-			<div id="menu">
-				<c:forEach var="side" items="${side}">
-					<ul class="main1" style="display: inline-block;">
-						<li><a href="#"><c:out value="${side.LVL_LVL}"/> </a>
-							<ul class="main2">
-								<li><a href="#"><c:out value="${side.LVL_CD}"/> </a>
-									<ul class="main3">
-										<li><a href="#">2단소메뉴1</a></li>
-										<li><a href="#">2단소메뉴2</a></li>
-										<li><a href="#">2단소메뉴3</a></li>
+			<div id="cssmenu">
+				<c:forEach var="side" items="${side}" begin="0" end="11" step="1" varStatus="status">
+					<ul>
+						<li class="has-sub"><a href="#">
+								<c:out value="${side.LVL_CD}" />
+							</a>
+							<c:forEach var="side2" items="${side2}">
+							<ul>
+								<li class='has-sub'><a href="#"> </a>
+									<ul>
+										<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a></li>
 									</ul></li>
-							</ul></li>
+							</ul>
+							</c:forEach>
+					</ul>
+				</c:forEach>
+			</div>
+			<div id="cssmenu">
+				<c:forEach var="side" items="${side}" begin="12" end="23" step="1" varStatus="status">
+					<ul>
+						<li class="has-sub"><a href="#">
+								<c:out value="${side.LVL_CD}" />
+							</a>
+							<c:forEach var="side2" items="${side2}">
+							<ul>
+								<li class='has-sub'><a href="#"> </a>
+									<ul>
+										<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a></li>
+									</ul></li>
+							</ul>
+							</c:forEach>
+					</ul>
+				</c:forEach>
+			</div>
+			<div id="cssmenu">
+				<c:forEach var="side" items="${side}" begin="24" end="36" step="1" varStatus="status">
+					<ul>
+						<li class="has-sub"><a href="#">
+								<c:out value="${side.LVL_CD}" />
+							</a>
+							<c:forEach var="side2" items="${side2}">
+							<ul>
+								<li class='has-sub'><a href="#"> </a>
+									<ul>
+										<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a></li>
+									</ul></li>
+							</ul>
+							</c:forEach>
 					</ul>
 				</c:forEach>
 			</div>
@@ -189,31 +278,29 @@ ul {
 
 	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
 	<script>
-		// 				const root = document.getElementById('root');
-		// 				function createTreeView(menu, currentNode) {
-		// 					// TODO: createTreeView 함수를 작성하세요.
+		(function($) {
+			$(document).ready(function() {
 
-		// 					for (let i = 0; i < menu.length; i++) {
-		// 						const li = document.createElement("li");
-		// 						const ul = document.createElement("ul");
-		// 						const input = document.createElement("input");
-		// 						const span = document.createElement("span");
+				$('#cssmenu li.active').addClass('open').children('ul').show();
+				$('#cssmenu li.has-sub>a').on('click', function() {
+					$(this).removeAttr('href');
+					var element = $(this).parent('li');
+					if (element.hasClass('open')) {
+						element.removeClass('open');
+						element.find('li').removeClass('open');
+						element.find('ul').slideUp(200);
+					} else {
+						element.addClass('open');
+						element.children('ul').slideDown(200);
+						element.siblings('li').children('ul').slideUp(200);
+						element.siblings('li').removeClass('open');
+						element.siblings('li').find('li').removeClass('open');
+						element.siblings('li').find('ul').slideUp(200);
+					}
+				});
 
-		// 						if (menu[i].children === undefined) {
-		// 							currentNode.append(li);
-		// 							li.textContent = `${menu[i].name}`;
-		// 						} else {
-		// 							currentNode.append(li);
-		// 							li.append(input, span, ul);
-		// 							input.setAttribute("type", "checkbox");
-		// 							span.textContent = `${menu[i].name}`;
-
-		// 							createTreeView(menu[i].children, ul);
-		// 						}
-		// 					}
-		// 				}
-
-		// 				createTreeView(menu, root);
+			});
+		})(jQuery);
 	</script>
 	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>

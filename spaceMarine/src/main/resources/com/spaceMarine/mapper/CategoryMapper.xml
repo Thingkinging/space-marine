@@ -3,23 +3,39 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spaceMarine.mapper.CategoryMapper">
-	<select id="getList" resultType="com.spaceMarine.vo.CategoryVO">
+	<select id="getList_LVL_CD"
+		resultType="com.spaceMarine.vo.CategoryVO">
 		WITH RECURSIVE cte AS
 		(
-		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, 1 AS Lv FROM category WHERE
-		H_LVL_CD=0
+		SELECT LVL_LVL, LVL_CD, H_LVL_CD,
+		LVL_SEQ, 1 AS Lv FROM category WHERE H_LVL_CD=0
 		UNION all
-		SELECT a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS
-		a
+		SELECT a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS a
 		INNER JOIN cte AS b ON a.H_LVL_CD = b.LVL_CD
 		)
-		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, Lv FROM cte;
+		SELECT distinct
+		SUBSTR(LVL_CD,1,2) AS LVL_CD,H_LVL_CD FROM cte
+	</select>
+	<select id="getList_H_LVL_CD"
+		resultType="com.spaceMarine.vo.CategoryVO">
+		WITH RECURSIVE cte AS
+		(
+		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, 1 AS Lv FROM category WHERE H_LVL_CD=0
+		UNION all
+		SELECT a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS a
+		INNER JOIN cte AS b ON a.H_LVL_CD = b.LVL_CD
+		)
+		SELECT DISTINCT SUBSTR(LVL_CD,1,2) AS LVL_CD , H_LVL_CD FROM cte
 	</select>
 
 
 	<select id="read" resultType="com.spaceMarine.vo.CategoryVO">
 		select * from category where
 		LVL_LVL = #{LVL_LVL}
+	</select>
+	<select id="">
+		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, Lv FROM
+		cte
 	</select>
 
 </mapper>
