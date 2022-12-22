@@ -107,7 +107,7 @@ ul {
 	font-size: 16px;
 	text-decoration: none;
 	color: #ffffff;
-/* 	background: #3ab4a6; */
+	/* 	background: #3ab4a6; */
 	-webkit-transition: color .2s ease;
 	-o-transition: color .2s ease;
 	transition: color .2s ease;
@@ -216,22 +216,25 @@ ul {
 
 
 		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
-		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
+		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh; overflow: auto;">
 			<hr>
 
 			<div id="cssmenu">
-				<c:forEach var="side" items="${side}" begin="0" end="11" step="1" varStatus="status">
+				<c:forEach var="side" items="${side}" begin="0" end="11" varStatus="status">
 					<ul>
 						<li class="has-sub"><a href="#">
 								<c:out value="${side.LVL_CD}" />
-							</a>
-							<c:forEach var="side2" items="${side2}">
-							<ul>
-								<li class='has-sub'><a href="#"> </a>
+							</a> <c:forEach var="side2" items="${side2}">
+								<c:if test="${side.LVL_CD == side2.LVL_CD}">
 									<ul>
-										<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a></li>
-									</ul></li>
-							</ul>
+										<li class='has-sub'><a href="#">
+												<c:out value="${side2.h_LVL_CD}" />
+											</a>
+											<ul>
+												<li class='has-sub'><a href="#"></a></li>
+											</ul></li>
+									</ul>
+								</c:if>
 							</c:forEach>
 					</ul>
 				</c:forEach>
@@ -241,14 +244,17 @@ ul {
 					<ul>
 						<li class="has-sub"><a href="#">
 								<c:out value="${side.LVL_CD}" />
-							</a>
-							<c:forEach var="side2" items="${side2}">
-							<ul>
-								<li class='has-sub'><a href="#"> </a>
+							</a> <c:forEach var="side2" items="${side2}">
+								<c:if test="${side.LVL_CD == side2.LVL_CD}">
 									<ul>
-										<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a></li>
-									</ul></li>
-							</ul>
+										<li class='has-sub'><a href="#">
+												<c:out value="${side2.h_LVL_CD}" />
+											</a>
+											<ul>
+												<li class='has-sub'><a href="#"></a></li>
+											</ul></li>
+									</ul>
+								</c:if>
 							</c:forEach>
 					</ul>
 				</c:forEach>
@@ -258,14 +264,17 @@ ul {
 					<ul>
 						<li class="has-sub"><a href="#">
 								<c:out value="${side.LVL_CD}" />
-							</a>
-							<c:forEach var="side2" items="${side2}">
-							<ul>
-								<li class='has-sub'><a href="#"> </a>
+							</a> <c:forEach var="side2" items="${side2}">
+								<c:if test="${side.LVL_CD == side2.LVL_CD}">
 									<ul>
-										<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a></li>
-									</ul></li>
-							</ul>
+										<li class='has-sub'><a href="#">
+												<c:out value="${side2.h_LVL_CD}" />
+											</a>
+											<ul>
+												<li class='has-sub'><a href="#"></a></li>
+											</ul></li>
+									</ul>
+								</c:if>
 							</c:forEach>
 					</ul>
 				</c:forEach>

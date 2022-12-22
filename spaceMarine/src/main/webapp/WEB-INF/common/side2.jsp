@@ -1,113 +1,307 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NeoShips</title>
+<title>side</title>
+
+<%-- <link href="${pageContext.request.contextPath}/resources/main/css/bootstrap.min.css" rel="stylesheet"> --%>
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
 <style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
 .b-example-divider {
 	height: 1rem;
-	background-color: rgba(0, 0, 0, .1);
+	background-color: white;
 	border: solid rgba(0, 0, 0, .15);
 	border-width: 1px 0;
-	box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em
-		rgba(0, 0, 0, .15);
 }
 
 .b-example-vr {
 	flex-shrink: 0;
-	width: 1rem;
+	width: 1.5rem;
 	height: 100vh;
+}
+
+.bi {
+	vertical-align: -.125em;
+	fill: currentColor;
+}
+
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+ul {
+	list-style: none;
 }
 </style>
 
 
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
+
+#cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#cssmenu {
+	width: 80px;
+	font-family: Raleway, sans-serif;
+	color: #ffffff;
+	display: inline-table;
+}
+
+#cssmenu ul ul {
+	display: none;
+}
+
+#cssmenu>ul>li.active>ul {
+	display: block;
+}
+
+.align-right {
+	float: right;
+}
+
+#cssmenu>ul>li>a {
+	padding: 16px 22px;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 16px;
+	text-decoration: none;
+	color: #ffffff;
+/* 	background: #3ab4a6; */
+	-webkit-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+}
+
+#cssmenu>ul>li>a:hover {
+	color: #d8f3f0;
+}
+
+#cssmenu ul>li.has-sub>a:after {
+	position: absolute;
+	right: 26px;
+	top: 19px;
+	z-index: 5;
+	display: block;
+	height: 10px;
+	width: 2px;
+	background: #ffffff;
+	content: "";
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
+}
+
+#cssmenu ul>li.has-sub>a:before {
+	position: absolute;
+	right: 22px;
+	top: 23px;
+	display: block;
+	width: 10px;
+	height: 2px;
+	background: #ffffff;
+	content: "";
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-ms-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
+}
+
+#cssmenu ul>li.has-sub.open>a:after, #cssmenu ul>li.has-sub.open>a:before
+	{
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#cssmenu ul ul li a {
+	padding: 14px 22px;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 14px;
+	text-decoration: none;
+	color: #dddddd;
+	background: #49505a;
+	-webkit-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+}
+
+#cssmenu ul ul ul li a {
+	padding-left: 32px;
+}
+
+#cssmenu ul ul li a:hover {
+	color: #ffffff;
+}
+
+#cssmenu ul ul>li.has-sub>a:after {
+	top: 16px;
+	right: 26px;
+	background: #dddddd;
+}
+
+#cssmenu ul ul>li.has-sub>a:before {
+	top: 20px;
+	background: #dddddd;
+}
+</style>
+
 <!-- Custom styles for this template -->
-<link href="${contextPath}/resources/css/sidebars.css" rel="stylesheet">
-<link href="${contextPath}/resources/js/sidebars.js" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/main/css/sidebars.css" rel="stylesheet">
 </head>
 <body>
-
-	<main class="d-flex flex-nowrap">
-
-		<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-			<svg class="bi pe-none me-2" width="30" height="24">
-					</svg>
-			<span class="fs-5 fw-semibold">Collapsible</span>
-			<!-- Default dropend button -->
-			<div class="btn-group dropend">
-				<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropright</button>
-				<ul class="dropdown-menu">
-					<!-- Dropdown menu links -->
-				</ul>
+	<div class="flex-shrink-0"
+		style="width: 15%; height: 100vh; max-height: 100vh; overflow-x: auto; overflow-y: hidden; float: left; background-color: rgb(26, 90, 197);"
+	>
+		<br>
+		<h3 style="padding-left: 20px; color: white; font: bold;">가격 단위</h3>
+		<div style="background-color: rgb(70, 110, 200); margin: 0;">
+			<hr>
+			<div class="fs-5 fw-bold" style="color: white; margin-left: 30px;">
+				대한민국 &nbsp;&nbsp;
+				<input type="radio" name="chk_info" value="대한민국">
 			</div>
-
+			<div class="fs-5 fw-bold" style="color: white; margin-left: 30px;">
+				US &emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="chk_info" value="미국">
+			</div>
+			<hr>
 		</div>
 
-		<div class="b-example-divider b-example-vr"></div>
 
-		<div class="container-fluid" align="center">
-			<form class="d-flex" action="/board/main" method="get" id="searchForm">
-				<input type="text" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>">
-				<input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>">
-				<input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>">
-				<button class="btn btn-outline-success">Search</button>
-			</form>
+		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
+		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
+			<hr>
 
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col" width="15%">코드번호</th>
-						<th scope="col" width="35%">제품</th>
-						<th scope="col" width="20%">비고</th>
-						<th scope="col" width="10%">단위</th>
-						<th scope="col" width="20%">가격(WON)</th>
-				</thead>
-				<tbody>
-					<c:forEach var="list" items="${list}">
-						<tr>
-							<!-- 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo"> -->
-							<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
-									<c:out value="${list.IMPA_CD}" />
-									<input type="hidden" name="codeInfo" id="codeInfo" value="<c:out value="${list.IMPA_CD}" />">
-								</a></td>
-							<td><c:out value="${list.ITEM_NM_KO}">
-								</c:out></td>
-							<td><c:out value="${list.DESCRIPTION}"></c:out></td>
-							<td><c:out value="${list.ADD_COL3}"></c:out></td>
-
-							<td><a class="move" href="javascript:priceInfo()" id="priceInfo">
-									<c:out value="${list.UNIT}" />
-								</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<div style="margin-left: 35%;">
-				<ul class="pagination" style="list-style: none; float: left; display: inline;">
-					<c:if test="${pageMaker.prev}">
-						<li class="paginate_button previous" style="float: left;"><a href="${pageMaker.startPage -1}" class="main_btn" style="">◀</a></li>
-					</c:if>
-
-					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-						<li class="paginate_button  ${pageMaker.cri.pageNum == num ? 'active':''} " style="float: left;"><a href="${num}" class="main_btn">${num}</a></li>
-					</c:forEach>
-
-					<c:if test="${pageMaker.next}">
-						<li class="paginate_button next" style="float: left;"><a href="${pageMaker.endPage +1 }" class="main_btn">▶</a></li>
-					</c:if>
-				</ul>
+			<div id="cssmenu">
+				<c:forEach var="side" items="${side}" begin="0" end="11" step="1" varStatus="status">
+					<ul>
+						<li class="has-sub"><a href="#">
+								<c:out value="${side.LVL_CD}" />
+							</a>
+							<c:forEach var="side2" items="${side2}">
+							<ul>
+								<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a>
+									<ul>
+										<li class='has-sub'><a href="#"></a></li>
+									</ul></li>
+							</ul>
+							</c:forEach>
+					</ul>
+				</c:forEach>
 			</div>
-			<form action="/board/main" method="get" id="actionForm">
-				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-				<input type="hidden" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>">
-			</form>
+			<div id="cssmenu">
+				<c:forEach var="side" items="${side}" begin="12" end="23" step="1" varStatus="status">
+					<ul>
+						<li class="has-sub"><a href="#">
+								<c:out value="${side.LVL_CD}" />
+							</a>
+							<c:forEach var="side2" items="${side2}">
+							<ul>
+								<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a>
+									<ul>
+										<li class='has-sub'><a href="#"></a></li>
+									</ul></li>
+							</ul>
+							</c:forEach>
+					</ul>
+				</c:forEach>
+			</div>
+			<div id="cssmenu">
+				<c:forEach var="side" items="${side}" begin="24" end="36" step="1" varStatus="status">
+					<ul>
+						<li class="has-sub"><a href="#">
+								<c:out value="${side.LVL_CD}" />
+							</a>
+							<c:forEach var="side2" items="${side2}">
+							<ul>
+								<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a>
+									<ul>
+										<li class='has-sub'><a href="#"></a></li>
+									</ul></li>
+							</ul>
+							</c:forEach>
+					</ul>
+				</c:forEach>
+			</div>
 		</div>
-	</main>
+	</div>
 
+
+
+
+	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
+	<script>
+		(function($) {
+			$(document).ready(function() {
+
+				$('#cssmenu li.active').addClass('open').children('ul').show();
+				$('#cssmenu li.has-sub>a').on('click', function() {
+					$(this).removeAttr('href');
+					var element = $(this).parent('li');
+					if (element.hasClass('open')) {
+						element.removeClass('open');
+						element.find('li').removeClass('open');
+						element.find('ul').slideUp(200);
+					} else {
+						element.addClass('open');
+						element.children('ul').slideDown(200);
+						element.siblings('li').children('ul').slideUp(200);
+						element.siblings('li').removeClass('open');
+						element.siblings('li').find('li').removeClass('open');
+						element.siblings('li').find('ul').slideUp(200);
+					}
+				});
+
+			});
+		})(jQuery);
+	</script>
+	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>
 </html>

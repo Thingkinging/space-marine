@@ -11,16 +11,17 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = "../../../database.xml")
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-public class MemberMapperTests {
+public class SsmaasMapperTests {
 
 	@Autowired
-	@Qualifier("sqlSessionFactory")
-	private MemberMapper mapper;
+	@Qualifier("sqlSessionFactory2")
+	private SsmaasMapper mapper;
 
 	@Test
-	public void testGetList() {
-		log.info(mapper);
+	public void testGetList_Sa_Category_Name() {
+		log.info(mapper.getList_Sa_Category_Name());
 	}
 
 }

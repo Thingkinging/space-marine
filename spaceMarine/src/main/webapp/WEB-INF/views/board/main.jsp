@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Space Marine</title>
+<title>NeoShips</title>
 <link rel="icon" type="${pageContext.request.contextPath}/resources/main/image/x-icon"
 	href="${pageContext.request.contextPath}/resources/main/assets/favicon.ico"
 />
@@ -121,7 +121,7 @@
 		function codeInfo() {
 			var popUrl = "/board/codeInfo";
 			var popName = "codeInfo";
-			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
+			var popOption = "width = 650px, height=550px, left = 300px, top=300px, scrollbars=yes";
 			window.open("", popName, popOption);
 
 			myForm.target = popName;
@@ -133,7 +133,8 @@
 	</script>
 	<script type="text/javascript">
 		function priceInfo() {
-			var popUrl = "/board/priceInfo";
+// 			var popUrl = "/board/priceInfo";
+			var popUrl = "https://ssmaas.com/default.asp";
 			var popName = "priceInfo";
 			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
 			window.open(popUrl, popName, popOption);

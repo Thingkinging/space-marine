@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spaceMarine.mapper.SsmaasMapper">
+	<select id="getList_Sa_Category_Name"
+		resultType="com.spaceMarine.dto.SsmaasDTO">
+		WITH cte AS
+		(
+		SELECT Name, CateCode, Depth,Parent,
+		1 AS Lv
+		FROM T_CATEGORY WHERE Parent=0
+		UNION all
+		SELECT
+		a.Name, a.CateCode,
+		a.Depth, a.Parent, b.Lv + 1 FROM T_CATEGORY AS a
+		INNER JOIN cte AS b ON
+		a.Parent = b.CateCode
+		)
+		SELECT CateCode, Name,Parent FROM cte
+	</select>
+
+	<select id="getList_H_LVL_CD"
+		resultType="com.spaceMarine.dto.SsmaasDTO">
+		WITH RECURSIVE cte AS
+		(
+		SELECT LVL_LVL, LVL_CD, H_LVL_CD,
+		LVL_SEQ, 1 AS Lv FROM category WHERE
+		H_LVL_CD=0
+		UNION all
+		SELECT
+		a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS
+		a
+		INNER JOIN cte AS b ON a.H_LVL_CD = b.LVL_CD
+		)
+		SELECT DISTINCT
+		substr(LVL_CD,1,2) AS LVL_CD, case when substr(LVL_CD,1,2) =
+		substr(H_LVL_CD,1,2) then SUBSTR(H_LVL_CD,3) END AS H_LVL_CD FROM cte
+	</select>
+
+
+	<select id="read" resultType="com.spaceMarine.dto.SsmaasDTO">
+		select * from category where
+		LVL_LVL = #{LVL_LVL}
+	</select>
+
+</mapper>

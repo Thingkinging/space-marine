@@ -10,22 +10,28 @@
 		SELECT LVL_LVL, LVL_CD, H_LVL_CD,
 		LVL_SEQ, 1 AS Lv FROM category WHERE H_LVL_CD=0
 		UNION all
-		SELECT a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS a
+		SELECT
+		a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS
+		a
 		INNER JOIN cte AS b ON a.H_LVL_CD = b.LVL_CD
 		)
 		SELECT distinct
-		SUBSTR(LVL_CD,1,2) AS LVL_CD,H_LVL_CD FROM cte
+		SUBSTR(LVL_CD,1,2) AS LVL_CD FROM cte
 	</select>
+
 	<select id="getList_H_LVL_CD"
 		resultType="com.spaceMarine.vo.CategoryVO">
 		WITH RECURSIVE cte AS
 		(
-		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, 1 AS Lv FROM category WHERE H_LVL_CD=0
+		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, 1 AS Lv FROM category WHERE
+		H_LVL_CD=0
 		UNION all
-		SELECT a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS a
+		SELECT a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS
+		a
 		INNER JOIN cte AS b ON a.H_LVL_CD = b.LVL_CD
 		)
-		SELECT DISTINCT SUBSTR(LVL_CD,1,2) AS LVL_CD , H_LVL_CD FROM cte
+		SELECT DISTINCT substr(LVL_CD,1,2) AS LVL_CD, case when substr(LVL_CD,1,2) =
+		substr(H_LVL_CD,1,2) then SUBSTR(H_LVL_CD,3) END AS H_LVL_CD FROM cte
 	</select>
 
 

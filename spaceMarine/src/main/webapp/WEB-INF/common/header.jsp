@@ -51,7 +51,7 @@
 							style="float: left; margin: 10px; margin-left: 20px;"
 						>
 					</a>
-					<h1 style="margin-top: 25px;">Space Marine</h1>
+					<h1 style="margin-top: 25px;">NeoShips</h1>
 				</div>
 
 			</div>
