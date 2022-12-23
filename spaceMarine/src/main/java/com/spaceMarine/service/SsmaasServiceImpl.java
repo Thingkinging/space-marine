@@ -2,20 +2,27 @@ package com.spaceMarine.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.spaceMarine.dto.SsmaasDTO;
+import com.spaceMarine.mapper.CategoryMapper;
 import com.spaceMarine.mapper.SsmaasMapper;
 
 public class SsmaasServiceImpl implements SsmaasService {
 
 	@Autowired
-	@Qualifier("sqlSessionFactory2")
+	@Resource(name = "mssql-sqlSession")
 	private SsmaasMapper mapper;
+
+	@Autowired
+	@Resource(name = "mariadb-sqlSession")
+	private CategoryMapper categoryMapper;
 
 	@Override
 	public List<SsmaasDTO> getList_Sa_Category_Name() {
+
 		return mapper.getList_Sa_Category_Name();
 	}
 

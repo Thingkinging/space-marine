@@ -1,9 +1,10 @@
 package com.spaceMarine.service;
 
+import javax.annotation.Resource;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -15,7 +16,7 @@ import lombok.extern.log4j.Log4j;
 public class CategoryServiceImplTest {
 
 	@Autowired
-	@Qualifier("sqlSessionFactory")
+	@Resource(name = "mariadb-sqlSession")
 	CategoryService service;
 
 	@Test

@@ -8,12 +8,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.spaceMarine.mapper.CategoryMapper;
 import com.spaceMarine.vo.CategoryVO;
@@ -21,12 +19,11 @@ import com.spaceMarine.vo.CategoryVO;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-	@Autowired
-	@Qualifier("sqlSessionFactory")
-	private DataSource dataSource;
-
-	@Autowired
-	@Qualifier("sqlSessionFactory")
+	@Inject
+	DataSource dataSource;
+//	@Autowired
+//	@Qualifier("mariadb-sqlSession")
+	@Inject
 	private CategoryMapper mapper;
 
 	@Override
@@ -40,7 +37,6 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.read(Lvl_Lvl);
 	}
 
-	@Transactional
 	@Override
 	public List<CategoryVO> getList_H_LVL_CD() {
 		List<CategoryVO> list = new ArrayList<CategoryVO>();
@@ -48,6 +44,7 @@ public class CategoryServiceImpl implements CategoryService {
 		List<CategoryVO> newList = new ArrayList<CategoryVO>(set);
 
 		PreparedStatement pstmt = null;
+
 		try {
 			Connection conn = dataSource.getConnection();
 //			String query = "WITH RECURSIVE cte AS\r\n" + "(\r\n"

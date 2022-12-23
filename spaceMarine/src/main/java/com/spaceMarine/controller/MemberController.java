@@ -1,7 +1,8 @@
 package com.spaceMarine.controller;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 
 	@Autowired
-	@Qualifier("sqlSessionFactory")
+	@Resource(name = "mariadb-sqlSession")
 	private MemberService service;
 
 	@Autowired
-	@Qualifier("sqlSessionFactory")
+	@Resource(name = "mariadb-sqlSession")
 	private ItemService productService;
 
 	@GetMapping("/register")

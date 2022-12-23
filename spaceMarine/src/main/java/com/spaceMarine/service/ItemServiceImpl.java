@@ -2,8 +2,9 @@ package com.spaceMarine.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.spaceMarine.mapper.ItemMapper;
@@ -17,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
-	@Qualifier("sqlSessionFactory")
+	@Resource(name = "mariadb-sqlSession")
 	private ItemMapper mapper;
 
 	@Override
