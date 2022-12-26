@@ -8,8 +8,7 @@
 	</select>
 
 	<select id="read" resultType="com.spaceMarine.vo.ItemVO">
-		select * from item where IMPA_CD =
-		#{IMPA_CD}
+		select * from item where IMPA_CD = #{IMPA_CD}
 	</select>
 
 
@@ -17,7 +16,9 @@
 
 	<select id="getListWithPaging"
 		resultType="com.spaceMarine.vo.ItemVO">
-		SELECT * from item
+		<!-- SELECT * from item -->
+		select @rownum:=@rownum + 1 as num, a.* from item a, (select
+		@rownum:=0) r
 		<where>
 			<if test="keyword != null">
 				IMPA_CD like concat('%',#{keyword},'%')
@@ -37,28 +38,54 @@
 				concat('%',#{keyword},'%')
 			</if>
 		</where>
-		<!-- LIMIT #{pageNum},#{amount} -->
-		LIMIT 0, 14
+		ORDER BY num
+		<![CDATA[
+		LIMIT 0, #{amount}
+		]]>
+		<!-- LIMIT #{pageNum} OFFSET #{amount} -->
 	</select>
 
 
 	<!-- 전체 데이터 개수 -->
 	<select id="getTotalCount" resultType="int">
 		SELECT COUNT(*) FROM item
+		<where>
+			<if test="keyword != null">
+				IMPA_CD like concat('%',#{keyword},'%')
+				or ITEM_NM_KO like
+				concat('%',#{keyword},'%')
+				or DESCRIPTION like
+				concat('%',#{keyword},'%')
+				or ITEM_NM_EN like
+				concat('%',#{keyword},'%')
+				or ITEM_NM_SP like
+				concat('%',#{keyword},'%')
+				or ITEM_NM_JP like
+				concat('%',#{keyword},'%')
+				or ITEM_NM_CN like
+				concat('%',#{keyword},'%')
+				or ITEM_NM_RS like
+				concat('%',#{keyword},'%')
+			</if>
+		</where>
 
 	</select>
 
 	<select id="big_cd" resultType="com.spaceMarine.vo.ItemVO">
 		WITH RECURSIVE cte AS
 		(
-		SELECT LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD, 1 AS item_level FROM item WHERE
+		SELECT
+		LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD, 1 AS item_level FROM item WHERE
 		LVL1_CD = #{LVL1_CD}
 		UNION all
-		SELECT a.LVL1_CD, a.LVL2_CD, a.LVL3_CD, a.LVL4_CD, b.item_level + 1 FROM
+		SELECT a.LVL1_CD, a.LVL2_CD, a.LVL3_CD,
+		a.LVL4_CD, b.item_level + 1 FROM
 		item AS a
-		INNER JOIN cte AS b ON a.LVL1_CD = b.LVL2_CD
+		INNER JOIN cte AS b ON
+		a.LVL1_CD = b.LVL2_CD
 		)
-		SELECT DISTINCT LVL1_CD, LVL2_CD, LVL3_CD, LVL4_CD, item_level FROM cte;
+		SELECT DISTINCT LVL1_CD, LVL2_CD, LVL3_CD,
+		LVL4_CD, item_level FROM cte;
 	</select>
 
 

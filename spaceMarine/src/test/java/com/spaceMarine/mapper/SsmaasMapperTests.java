@@ -1,12 +1,14 @@
 package com.spaceMarine.mapper;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.spaceMarine.dto.SsmaasDTO;
+import com.spaceMarine.mapper2.SsmaasMapper;
+import com.spaceMarine.vo.CategoryVO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -17,21 +19,43 @@ import lombok.extern.log4j.Log4j;
 public class SsmaasMapperTests {
 
 	@Autowired
-	@Resource(name = "mssql-sqlSession")
-	private SsmaasMapper mapper;
+	private SsmaasMapper mssqlSqlSession;
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	private CategoryMapper categoryMapper;
+	private CategoryMapper mariadbSqlSession;
 
 	@Test
 	public void testGetList_Sa_Category_Name() {
-		log.info(this.mapper.getList_Sa_Category_Name());
+		log.info(this.mssqlSqlSession.getList_Sa_Category_Name().get(1));
 	}
 
 	@Test
 	public void testCategoty_List() {
-		log.info(categoryMapper.getList_H_LVL_CD());
+		log.info(mariadbSqlSession.getList_H_LVL_CD().get(1));
+	}
+
+	@Test
+	public void testJoinList() {
+
+		CategoryVO categoryVO = new CategoryVO();
+		SsmaasDTO ssmaasDTO = new SsmaasDTO();
+		ssmaasDTO = mssqlSqlSession.getList_Sa_Category_Name().get(1);
+		categoryVO = mariadbSqlSession.getList_H_LVL_CD().get(1);
+
+		int cd = categoryVO.getLVL_CD().hashCode();
+		int nm = ssmaasDTO.getName().substring(0, 2).hashCode();
+		if (cd == nm) {
+			int code = ssmaasDTO.getCateCode();
+			log.info("code: " + code);
+			log.info("cd: " + cd);
+			log.info("nm: " + nm);
+		} else {
+			int code = ssmaasDTO.getCateCode();
+			log.info("code?: " + code);
+			log.info("cd: " + cd);
+			log.info("nm: " + nm);
+		}
+
 	}
 
 }

@@ -66,7 +66,6 @@ ul {
 
 
 <style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
 
 #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
 	margin: 0;
@@ -83,7 +82,6 @@ ul {
 
 #cssmenu {
 	width: 80px;
-	font-family: Raleway, sans-serif;
 	color: #ffffff;
 	display: inline-table;
 }
@@ -102,7 +100,6 @@ ul {
 
 #cssmenu>ul>li>a {
 	padding: 16px 22px;
-	cursor: pointer;
 	z-index: 2;
 	font-size: 16px;
 	text-decoration: none;
@@ -119,14 +116,14 @@ ul {
 
 #cssmenu ul>li.has-sub>a:after {
 	position: absolute;
-	right: 26px;
+	right: 30px;
 	top: 19px;
 	z-index: 5;
 	display: block;
 	height: 10px;
 	width: 2px;
 	background: #ffffff;
-	content: "";
+ 	content: "";
 	-webkit-transition: all 0.1s ease-out;
 	-moz-transition: all 0.1s ease-out;
 	-ms-transition: all 0.1s ease-out;
@@ -142,7 +139,7 @@ ul {
 	width: 10px;
 	height: 2px;
 	background: #ffffff;
-	content: "";
+ 	/* content: ""; */
 	-webkit-transition: all 0.1s ease-out;
 	-moz-transition: all 0.1s ease-out;
 	-ms-transition: all 0.1s ease-out;
@@ -161,7 +158,6 @@ ul {
 
 #cssmenu ul ul li a {
 	padding: 14px 22px;
-	cursor: pointer;
 	z-index: 2;
 	font-size: 14px;
 	text-decoration: none;
@@ -182,7 +178,7 @@ ul {
 
 #cssmenu ul ul>li.has-sub>a:after {
 	top: 16px;
-	right: 26px;
+	right: 15px;
 	background: #dddddd;
 }
 
@@ -229,10 +225,15 @@ ul {
 									<ul>
 										<li class='has-sub'><a href="#">
 												<c:out value="${side2.h_LVL_CD}" />
-											</a>
-											<ul>
-												<li class='has-sub'><a href="#"></a></li>
-											</ul></li>
+											</a> <c:forEach var="side3" items="${side3}">
+												<c:if test="${side2.h_LVL_CD == side3.h_LVL_CD}">
+													<ul>
+														<li class='has-sub'><a href="#">
+																<c:out value="${side3.LVL_CD}" />
+															</a></li>
+													</ul>
+												</c:if>
+											</c:forEach></li>
 									</ul>
 								</c:if>
 							</c:forEach>
@@ -249,10 +250,15 @@ ul {
 									<ul>
 										<li class='has-sub'><a href="#">
 												<c:out value="${side2.h_LVL_CD}" />
-											</a>
-											<ul>
-												<li class='has-sub'><a href="#"></a></li>
-											</ul></li>
+											</a> <c:forEach var="side3" items="${side3}">
+												<c:if test="${side2.h_LVL_CD == side3.h_LVL_CD}">
+													<ul>
+														<li class='has-sub'><a href="#">
+																<c:out value="${side3.LVL_CD}" />
+															</a></li>
+													</ul>
+												</c:if>
+											</c:forEach></li>
 									</ul>
 								</c:if>
 							</c:forEach>
@@ -269,10 +275,15 @@ ul {
 									<ul>
 										<li class='has-sub'><a href="#">
 												<c:out value="${side2.h_LVL_CD}" />
-											</a>
-											<ul>
-												<li class='has-sub'><a href="#"></a></li>
-											</ul></li>
+											</a> <c:forEach var="side3" items="${side3}">
+												<c:if test="${side2.h_LVL_CD == side3.h_LVL_CD}">
+													<ul>
+														<li class='has-sub'><a href="#">
+																<c:out value="${side3.LVL_CD}" />
+															</a></li>
+													</ul>
+												</c:if>
+											</c:forEach></li>
 									</ul>
 								</c:if>
 							</c:forEach>

@@ -1,7 +1,5 @@
 package com.spaceMarine.service;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +16,7 @@ import lombok.extern.log4j.Log4j;
 public class MemberServiceTests {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	private MemberService service;
+	private MemberService mariadbSqlSession;
 
 	@Test
 	public void testRegister() {
@@ -30,7 +27,7 @@ public class MemberServiceTests {
 		memberVO.setCo_gbn("이것도 테스트");
 		memberVO.setBiz_no("처음부터");
 
-		service.register(memberVO);
+		mariadbSqlSession.register(memberVO);
 
 		log.info(memberVO);
 	}

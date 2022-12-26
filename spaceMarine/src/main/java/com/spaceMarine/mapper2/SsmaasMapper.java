@@ -1,4 +1,4 @@
-package com.spaceMarine.mapper;
+package com.spaceMarine.mapper2;
 
 import java.util.List;
 

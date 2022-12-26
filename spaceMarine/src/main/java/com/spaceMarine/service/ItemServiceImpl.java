@@ -2,8 +2,6 @@ package com.spaceMarine.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,25 +16,26 @@ import lombok.extern.slf4j.Slf4j;
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	private ItemMapper mapper;
+	private ItemMapper mariadbSqlSession;
 
 	@Override
 	public List<ItemVO> getList(Criteria cri) {
 		log.info("getList with criteria: " + cri);
-		return mapper.getListWithPaging(cri);
+		return mariadbSqlSession.getListWithPaging(cri);
 	}
 
 	@Override
 	public Integer getTotalCount(Criteria cri) {
 		log.info("get total count.......");
-		return mapper.getTotalCount(cri);
+		return mariadbSqlSession.getTotalCount(cri);
 	}
 
 	@Override
 	public ItemVO read(String impa_cd) {
 		log.info("Impa_cd.........");
-		return mapper.read(impa_cd);
+		ItemVO itemVO = new ItemVO();
+		String code = itemVO.getIMPA_CD();
+		return mariadbSqlSession.read(code);
 	}
 
 }

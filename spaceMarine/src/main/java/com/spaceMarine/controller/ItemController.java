@@ -1,7 +1,5 @@
 package com.spaceMarine.controller;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +23,9 @@ import lombok.extern.slf4j.Slf4j;
 public class ItemController {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
 	private ItemService service;
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
 	CategoryService categoryService;
 
 	@GetMapping("/main")
@@ -37,9 +33,10 @@ public class ItemController {
 		log.info("main........." + cri);
 
 		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		model.addAttribute("side", categoryService.getList_LVL_CD());
 		model.addAttribute("side2", categoryService.getList_H_LVL_CD());
+		model.addAttribute("side3", categoryService.getList_LVL_CD_CD());
 
 		Integer total = service.getTotalCount(cri);
 
@@ -52,7 +49,7 @@ public class ItemController {
 	@PostMapping("/codeInfo")
 	public String codeInfo(@RequestParam("codeInfo") String impa_cd, Model model, ItemVO itemVO) {
 		log.info("post codeInfo......." + impa_cd);
-		model.addAttribute("list", service.read(itemVO.getIMPA_CD()));
+		model.addAttribute("list", service.read(impa_cd));
 		return "/popup/codeInfo";
 	}
 

@@ -16,6 +16,9 @@ public class PageDTO {
 	private Integer total;
 	private Criteria cri;
 
+//	public PageDTO(Criteria cri, Integer total) {
+//		this.total = total;
+//		this.cri = cri;
 	public PageDTO(Criteria cri, Integer total) {
 		this.total = total;
 		this.cri = cri;
@@ -27,15 +30,23 @@ public class PageDTO {
 		this.startPage = this.endPage - 9;
 
 		// total을 통해 endPage 계산
-		Integer readEnd = (int) (Math.ceil(total * 1.0) / cri.getAmount());
-		if (readEnd < this.endPage) {
-			this.endPage = readEnd;
-		}
+//		Integer readEnd = (int) (Math.ceil(total * 1.0) / cri.getAmount());
+//		if (readEnd < this.endPage) {
+//			this.endPage = readEnd;
+//		}
 
 		// 이전페이지
-		this.prev = this.startPage > 1;
+//		this.prev = this.startPage > 1;
+		this.prev = this.startPage == 1 ? false : true;
 
 		// 다음페이지
-		this.next = this.endPage < readEnd;
+//		this.next = this.endPage < readEnd;
+		this.next = total <= this.endPage * cri.getAmount() ? false : true;
+
+		if (!next) {
+			this.endPage = (int) Math.ceil(total / (double) cri.getAmount());
+		}
+
 	}
+
 }

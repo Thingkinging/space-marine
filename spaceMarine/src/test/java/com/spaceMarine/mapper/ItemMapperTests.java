@@ -2,8 +2,6 @@ package com.spaceMarine.mapper;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +19,11 @@ import lombok.extern.log4j.Log4j;
 public class ItemMapperTests {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	private ItemMapper mapper;
+	private ItemMapper mariadbSqlSession;
 
 	@Test
 	public void testGetList() {
-		log.info(mapper);
+		log.info(mariadbSqlSession);
 	}
 
 	@Test
@@ -36,9 +33,19 @@ public class ItemMapperTests {
 		cri.setPageNum(3);
 		cri.setAmount(10);
 
-		List<ItemVO> list = mapper.getListWithPaging(cri);
+		List<ItemVO> list = mariadbSqlSession.getListWithPaging(cri);
 
 		list.forEach(page -> log.info(page.getIMPA_CD()));
+	}
+
+	@Test
+	public void testGetCode() {
+		ItemVO itemVO = new ItemVO();
+		String code = itemVO.getIMPA_CD();
+
+		mariadbSqlSession.read("000101");
+
+		log.info("this value : " + mariadbSqlSession.read("000101"));
 	}
 
 }

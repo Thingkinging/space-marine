@@ -23,7 +23,7 @@ public class Criteria {
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
-	}
+	};
 
 	// 검색처리 추가
 	public String[] getTypeArr() {

@@ -15,11 +15,11 @@
 	<table>
 		<tr>
 			<td>코드번호</td>
-			<td><c:out value="${impa.IMPA_CD}"/></td>
+			<td><c:out value="${list.IMPA_CD}"/></td>
 		</tr>
 		<tr>
 			<td>단위</td>
-			<td><c:out value="${impa.UNIT}"/></td>
+			<td><c:out value="${list.UNIT}"/></td>
 		</tr>
 		<tr>
 			<td>단가</td>

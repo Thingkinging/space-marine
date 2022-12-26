@@ -1,7 +1,5 @@
 package com.spaceMarine.service;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +16,12 @@ import lombok.extern.log4j.Log4j;
 public class ItemServiceTests {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	private ItemService service;
+	private ItemService mariadbSqlSession;
 
 	@Test
 	public void testGetList() {
 		Criteria cri = new Criteria();
-		service.getList(cri).forEach(list -> log.info(list));
+		mariadbSqlSession.getList(cri).forEach(list -> log.info(list));
 	}
 
 }

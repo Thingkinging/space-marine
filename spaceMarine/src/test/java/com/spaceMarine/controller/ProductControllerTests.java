@@ -1,7 +1,5 @@
 package com.spaceMarine.controller;
 
-import javax.annotation.Resource;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +22,6 @@ import lombok.extern.log4j.Log4j;
 public class ProductControllerTests {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
 	private WebApplicationContext ctx;
 
 	private MockMvc mockMvc;

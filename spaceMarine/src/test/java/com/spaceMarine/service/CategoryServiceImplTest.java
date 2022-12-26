@@ -1,7 +1,5 @@
 package com.spaceMarine.service;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +14,7 @@ import lombok.extern.log4j.Log4j;
 public class CategoryServiceImplTest {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	CategoryService service;
+	CategoryService mariadbSqlSession;
 
 	@Test
 	public void test() {
@@ -25,14 +22,14 @@ public class CategoryServiceImplTest {
 
 	@Test
 	public void testCategory() {
-		service.getList_LVL_CD().forEach(i -> log.info(i));
+		mariadbSqlSession.getList_LVL_CD().forEach(i -> log.info(i));
 
 	}
 
 	@Test
 	public void testCategory1() {
 
-		service.getList_H_LVL_CD().forEach(i -> log.info(i));
+		mariadbSqlSession.getList_H_LVL_CD().forEach(i -> log.info(i));
 
 	}
 

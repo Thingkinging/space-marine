@@ -1,7 +1,5 @@
 package com.spaceMarine.mapper;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +14,11 @@ import lombok.extern.log4j.Log4j;
 public class MemberMapperTests {
 
 	@Autowired
-	@Resource(name = "mariadb-sqlSession")
-	private MemberMapper mapper;
+	private MemberMapper mariadbSqlSession;
 
 	@Test
 	public void testGetList() {
-		log.info(mapper);
+		log.info(mariadbSqlSession);
 	}
 
 }

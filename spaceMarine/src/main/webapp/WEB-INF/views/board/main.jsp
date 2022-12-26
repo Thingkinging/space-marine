@@ -96,7 +96,7 @@
 	<div style="margin-left: 35%;">
 		<ul class="pagination" style="list-style: none; float: left; display: inline;">
 			<c:if test="${pageMaker.prev}">
-				<li class="paginate_button previous" style="float: left;"><a href="${pageMaker.startPage -1}" class="main_btn" style="">◀</a></li>
+				<li class="paginate_button previous" style="float: left;"><a href="${pageMaker.startPage - 1}" class="main_btn">◀</a></li>
 			</c:if>
 
 			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
@@ -104,7 +104,7 @@
 			</c:forEach>
 
 			<c:if test="${pageMaker.next}">
-				<li class="paginate_button next" style="float: left;"><a href="${pageMaker.endPage +1 }" class="main_btn">▶</a></li>
+				<li class="paginate_button next" style="float: left;"><a href="${pageMaker.endPage + 1}" class="main_btn">▶</a></li>
 			</c:if>
 		</ul>
 	</div>
@@ -119,6 +119,7 @@
 
 	<script type="text/javascript">
 		function codeInfo() {
+
 			var popUrl = "/board/codeInfo";
 			var popName = "codeInfo";
 			var popOption = "width = 650px, height=550px, left = 300px, top=300px, scrollbars=yes";
@@ -129,17 +130,55 @@
 			myForm.method = "post";
 			myForm.submit();
 
-		}
+		};
 	</script>
 	<script type="text/javascript">
 		function priceInfo() {
-// 			var popUrl = "/board/priceInfo";
-			var popUrl = "https://ssmaas.com/default.asp";
+			// 			var popUrl = "/board/priceInfo";
+			var popUrl = "https://www.ssmaas.com/product/content.asp?guid=586040";
 			var popName = "priceInfo";
 			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
 			window.open(popUrl, popName, popOption);
 		}
 	</script>
-
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					var actionForm = $("#actionForm");
+					$(".paginate_button a").on(
+							"click",
+							function(e) {
+								e.preventDefault();
+								console.log("click");
+								actionForm.find("input[name='pageNum']").val(
+										$(this).attr("href"));
+								actionForm.submit();
+							});
+					// 							$(".move")
+					// 									.on(
+					// 											"click",
+					// 											function(e) {
+					// 												e.preventDefault();
+					// 												actionForm
+					// 														.append("<input type='hidden' name='bno' value='"
+					// 																+ $(this).attr(
+					// 																		"href")
+					// 																+ "'>");
+					// 												actionForm.attr("action",
+					// 														"/board/get");
+					// 												actionForm.submit();
+					// 											});
+					var searchForm = $("#searchForm");
+					$("#searchForm button").on("click", function(e) {
+						if (!searchForm.find("input[name='keyword']").val()) {
+							alert("키워드를 입력하세요.");
+							return false;
+						}
+						searchForm.find("input[name='pageNum']").val("1");
+						e.preventDefault();
+						searchForm.submit();
+					});
+				});
+	</script>
 </body>
 </html>

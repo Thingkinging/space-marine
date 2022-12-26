@@ -15,7 +15,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- MariaDB -->
 
-	<bean id="maria-dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="mariaDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="org.mariadb.jdbc.Driver"></property>
 		<property name="url"
@@ -24,31 +24,35 @@
 		<property name="password" value="sug204!@#"></property>
 	</bean>
 	
-	<bean id="mariadb-sqlSession"
+	<bean id="mariadbSqlSession"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="maria-dataSource"></property>
+		<property name="dataSource" ref="mariaDataSource"></property>
 		<property name="configLocation" value="classpath:mybatis/model/mariaConfig.xml"/>
 		<property name="mapperLocations" value="classpath*:com/spaceMarine/mapper/*.xml"/> 
 	</bean>
 	
 		<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="mariadb-sqlSession"></constructor-arg>
+		<constructor-arg name="sqlSessionFactory" ref="mariadbSqlSession"></constructor-arg>
 	</bean>	
 	
 	<bean id="mariadb" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactoryBeanName" value="mariadb-sqlSession"></property>
-		<property name="basePackage" value="com.spaceMarin.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="mariadbSqlSession"></property>
+		<property name="basePackage" value="com.spaceMarine.mapper"></property>
 	</bean>
 	
+<!-- 	<bean id="mapperFactoryBean" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
+<!-- 		<property name="mapperInterface" value="com.spaceMarine.mapper"></property> -->
+<!-- 	</bean> -->
+	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="maria-dataSource"></property>
+		<property name="dataSource" ref="mariaDataSource"></property>
 	</bean>
 
 
 
 
 	<!-- MSSQL -->
-	<bean id="mssql-dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="mssqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
 		<property name="url"
@@ -57,24 +61,24 @@
 		<property name="password" value="db_ssmaas20@!)%"></property>
 	</bean>
 
-	<bean id="mssql-sqlSession"
+	<bean id="mssqlSqlSession"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="mssql-dataSource"></property>
+		<property name="dataSource" ref="mssqlDataSource"></property>
 		<property name="configLocation" value="classpath:mybatis/model/mssqlConfig.xml"/>
 		<property name="mapperLocations" value="classpath*:com/spaceMarine/mapper2/*.xml"/>
 	</bean>
 	
 	<bean id="sqlSession2" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="mssql-sqlSession"></constructor-arg>
+		<constructor-arg name="sqlSessionFactory" ref="mssqlSqlSession"></constructor-arg>
 	</bean>
 	
 	<bean id="mssql" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactoryBeanName" value="mssql-sqlSession"></property>
+		<property name="sqlSessionFactoryBeanName" value="mssqlSqlSession"></property>
 		<property name="basePackage" value="com.spaceMarine.mapper2"></property>
 	</bean>
 	
 	<bean id="transactionManager2" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="mssql-dataSource"></property>
+		<property name="dataSource" ref="mssqlDataSource"></property>
 	</bean>
 	
 
