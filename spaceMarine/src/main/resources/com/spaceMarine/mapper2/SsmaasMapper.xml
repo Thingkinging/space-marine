@@ -37,6 +37,10 @@
 		substr(LVL_CD,1,2) AS LVL_CD, case when substr(LVL_CD,1,2) =
 		substr(H_LVL_CD,1,2) then SUBSTR(H_LVL_CD,3) END AS H_LVL_CD FROM cte
 	</select>
+	
+	<select id="LvOnePage" resultType="com.spaceMarine.dto.SsmaasDTO">
+		select 
+	</select>
 
 
 	<select id="read" resultType="com.spaceMarine.dto.SsmaasDTO">

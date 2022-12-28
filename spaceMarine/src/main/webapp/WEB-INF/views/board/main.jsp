@@ -78,7 +78,7 @@
 					<!-- 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo"> -->
 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
 							<c:out value="${list.IMPA_CD}" />
-							<input type="hidden" name="codeInfo" id="codeInfo" value="<c:out value="${list.IMPA_CD}" />">
+							<input type="hidden" name="codeInfo" id="codeInfo" value="<c:out value='${list.IMPA_CD}' />">
 						</a></td>
 					<td><c:out value="${list.ITEM_NM_KO}">
 						</c:out></td>
@@ -120,9 +120,17 @@
 	<script type="text/javascript">
 		function codeInfo() {
 
+// 			var myForm = document.myForm;
+// 			myWin = window.open("", "POP", "width = 650px, height=650px, scrollbars=yes");
+// 			myForm.codeInfo.value = codeInfo;
+// 			myForm.action = "/board/codeInfo";
+// 			myForm.target = "POP";
+// 			myForm.method = "post";
+// 			myForm.submit();
+			
 			var popUrl = "/board/codeInfo";
 			var popName = "codeInfo";
-			var popOption = "width = 650px, height=550px, left = 300px, top=300px, scrollbars=yes";
+			var popOption = "width = 650px, height=550px, scrollbars=yes";
 			window.open("", popName, popOption);
 
 			myForm.target = popName;
@@ -137,7 +145,7 @@
 			// 			var popUrl = "/board/priceInfo";
 			var popUrl = "https://www.ssmaas.com/product/content.asp?guid=586040";
 			var popName = "priceInfo";
-			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
+			var popOption = "width = 650px, height=550px, scrollbars=yes";
 			window.open(popUrl, popName, popOption);
 		}
 	</script>

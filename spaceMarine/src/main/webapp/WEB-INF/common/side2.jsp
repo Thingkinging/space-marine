@@ -66,8 +66,6 @@ ul {
 
 
 <style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
-
 #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
 	margin: 0;
 	padding: 0;
@@ -83,7 +81,6 @@ ul {
 
 #cssmenu {
 	width: 80px;
-	font-family: Raleway, sans-serif;
 	color: #ffffff;
 	display: inline-table;
 }
@@ -102,12 +99,11 @@ ul {
 
 #cssmenu>ul>li>a {
 	padding: 16px 22px;
-	cursor: pointer;
 	z-index: 2;
 	font-size: 16px;
 	text-decoration: none;
 	color: #ffffff;
-/* 	background: #3ab4a6; */
+	/* 	background: #3ab4a6; */
 	-webkit-transition: color .2s ease;
 	-o-transition: color .2s ease;
 	transition: color .2s ease;
@@ -119,7 +115,7 @@ ul {
 
 #cssmenu ul>li.has-sub>a:after {
 	position: absolute;
-	right: 26px;
+	right: 30px;
 	top: 19px;
 	z-index: 5;
 	display: block;
@@ -142,7 +138,7 @@ ul {
 	width: 10px;
 	height: 2px;
 	background: #ffffff;
-	content: "";
+	/* content: ""; */
 	-webkit-transition: all 0.1s ease-out;
 	-moz-transition: all 0.1s ease-out;
 	-ms-transition: all 0.1s ease-out;
@@ -161,7 +157,6 @@ ul {
 
 #cssmenu ul ul li a {
 	padding: 14px 22px;
-	cursor: pointer;
 	z-index: 2;
 	font-size: 14px;
 	text-decoration: none;
@@ -182,7 +177,7 @@ ul {
 
 #cssmenu ul ul>li.has-sub>a:after {
 	top: 16px;
-	right: 26px;
+	right: 15px;
 	background: #dddddd;
 }
 
@@ -216,57 +211,15 @@ ul {
 
 
 		<h3 style="padding-left: 20px; color: white; font: bold;">상품 분류</h3>
-		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh;">
+		<div style="background-color: rgb(70, 110, 200); margin: 0; height: 100vh; overflow: auto;">
 			<hr>
 
 			<div id="cssmenu">
-				<c:forEach var="side" items="${side}" begin="0" end="11" step="1" varStatus="status">
+				<c:forEach var="side3" items="${lvOne}" varStatus="status">
 					<ul>
-						<li class="has-sub"><a href="#">
-								<c:out value="${side.LVL_CD}" />
-							</a>
-							<c:forEach var="side2" items="${side2}">
-							<ul>
-								<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a>
-									<ul>
-										<li class='has-sub'><a href="#"></a></li>
-									</ul></li>
-							</ul>
-							</c:forEach>
-					</ul>
-				</c:forEach>
-			</div>
-			<div id="cssmenu">
-				<c:forEach var="side" items="${side}" begin="12" end="23" step="1" varStatus="status">
-					<ul>
-						<li class="has-sub"><a href="#">
-								<c:out value="${side.LVL_CD}" />
-							</a>
-							<c:forEach var="side2" items="${side2}">
-							<ul>
-								<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a>
-									<ul>
-										<li class='has-sub'><a href="#"></a></li>
-									</ul></li>
-							</ul>
-							</c:forEach>
-					</ul>
-				</c:forEach>
-			</div>
-			<div id="cssmenu">
-				<c:forEach var="side" items="${side}" begin="24" end="36" step="1" varStatus="status">
-					<ul>
-						<li class="has-sub"><a href="#">
-								<c:out value="${side.LVL_CD}" />
-							</a>
-							<c:forEach var="side2" items="${side2}">
-							<ul>
-								<li class='has-sub'><a href="#"><c:out value="${side2.h_LVL_CD}" /></a>
-									<ul>
-										<li class='has-sub'><a href="#"></a></li>
-									</ul></li>
-							</ul>
-							</c:forEach>
+						<li class='has-sub'><a href="#">
+								<c:out value="${side3.H_LVL_CD}" />
+							</a></li>
 					</ul>
 				</c:forEach>
 			</div>
@@ -301,6 +254,24 @@ ul {
 
 			});
 		})(jQuery);
+	</script>
+	<script>
+		function lvOne() {
+			let f = document.createElement('form');
+
+			let obj;
+			obj = document.createElement('input');
+			obj.setAttribute('type', 'hidden');
+			obj.setAttribute('name', 'LVL_CD');
+			obj.setAttribute('value', categoryVO);
+
+			f.appendChild(obj);
+			f.setAttribute('method', 'post');
+			f.setAttribute('action', '/board/lvOne');
+			document.body.appendChild(f);
+			f.submit();
+			// 			location.href="/board/lvOne";
+		}
 	</script>
 	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>

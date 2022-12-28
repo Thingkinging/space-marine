@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Space Marine</title>
+<title>NeoShips</title>
 <link rel="icon" type="${pageContext.request.contextPath}/resources/main/image/x-icon"
 	href="${pageContext.request.contextPath}/resources/main/assets/favicon.ico"
 />
@@ -78,7 +78,7 @@
 					<!-- 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo"> -->
 					<td><a class="move" href="javascript:codeInfo()" id="codeInfo">
 							<c:out value="${list.IMPA_CD}" />
-							<input type="hidden" name="codeInfo" id="codeInfo" value="<c:out value="${list.IMPA_CD}" />">
+							<input type="hidden" name="codeInfo" id="codeInfo" value="<c:out value='${list.IMPA_CD}' />">
 						</a></td>
 					<td><c:out value="${list.ITEM_NM_KO}">
 						</c:out></td>
@@ -96,7 +96,7 @@
 	<div style="margin-left: 35%;">
 		<ul class="pagination" style="list-style: none; float: left; display: inline;">
 			<c:if test="${pageMaker.prev}">
-				<li class="paginate_button previous" style="float: left;"><a href="${pageMaker.startPage -1}" class="main_btn" style="">◀</a></li>
+				<li class="paginate_button previous" style="float: left;"><a href="${pageMaker.startPage - 1}" class="main_btn">◀</a></li>
 			</c:if>
 
 			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
@@ -104,7 +104,7 @@
 			</c:forEach>
 
 			<c:if test="${pageMaker.next}">
-				<li class="paginate_button next" style="float: left;"><a href="${pageMaker.endPage +1 }" class="main_btn">▶</a></li>
+				<li class="paginate_button next" style="float: left;"><a href="${pageMaker.endPage + 1}" class="main_btn">▶</a></li>
 			</c:if>
 		</ul>
 	</div>
@@ -119,9 +119,18 @@
 
 	<script type="text/javascript">
 		function codeInfo() {
+
+// 			var myForm = document.myForm;
+// 			myWin = window.open("", "POP", "width = 650px, height=650px, scrollbars=yes");
+// 			myForm.codeInfo.value = codeInfo;
+// 			myForm.action = "/board/codeInfo";
+// 			myForm.target = "POP";
+// 			myForm.method = "post";
+// 			myForm.submit();
+			
 			var popUrl = "/board/codeInfo";
 			var popName = "codeInfo";
-			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
+			var popOption = "width = 650px, height=550px, scrollbars=yes";
 			window.open("", popName, popOption);
 
 			myForm.target = popName;
@@ -129,16 +138,55 @@
 			myForm.method = "post";
 			myForm.submit();
 
-		}
+		};
 	</script>
 	<script type="text/javascript">
 		function priceInfo() {
-			var popUrl = "/board/priceInfo";
+			// 			var popUrl = "/board/priceInfo";
+			var popUrl = "https://www.ssmaas.com/product/content.asp?guid=586040";
 			var popName = "priceInfo";
-			var popOption = "width = 650px, height=550px, left=300px, top=300px, scrollbars=yes";
+			var popOption = "width = 650px, height=550px, scrollbars=yes";
 			window.open(popUrl, popName, popOption);
 		}
 	</script>
-
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					var actionForm = $("#actionForm");
+					$(".paginate_button a").on(
+							"click",
+							function(e) {
+								e.preventDefault();
+								console.log("click");
+								actionForm.find("input[name='pageNum']").val(
+										$(this).attr("href"));
+								actionForm.submit();
+							});
+					// 							$(".move")
+					// 									.on(
+					// 											"click",
+					// 											function(e) {
+					// 												e.preventDefault();
+					// 												actionForm
+					// 														.append("<input type='hidden' name='bno' value='"
+					// 																+ $(this).attr(
+					// 																		"href")
+					// 																+ "'>");
+					// 												actionForm.attr("action",
+					// 														"/board/get");
+					// 												actionForm.submit();
+					// 											});
+					var searchForm = $("#searchForm");
+					$("#searchForm button").on("click", function(e) {
+						if (!searchForm.find("input[name='keyword']").val()) {
+							alert("키워드를 입력하세요.");
+							return false;
+						}
+						searchForm.find("input[name='pageNum']").val("1");
+						e.preventDefault();
+						searchForm.submit();
+					});
+				});
+	</script>
 </body>
 </html>

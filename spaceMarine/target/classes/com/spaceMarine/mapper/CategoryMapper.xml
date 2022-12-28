@@ -61,9 +61,32 @@
 		select * from category where
 		LVL_LVL = #{LVL_LVL}
 	</select>
-	<select id="">
-		SELECT LVL_LVL, LVL_CD, H_LVL_CD, LVL_SEQ, Lv FROM
-		cte
+
+	<select id="lvOneCode"
+		resultType="com.spaceMarine.vo.CategoryVO">
+		<![CDATA[
+		SELECT distinct substr(LVL_CD,1,2) AS LVL_CD FROM category WHERE LVL_CD = #{LVL_CD}
+		]]>
+	</select>
+
+	<select id="lvTwoItem"
+		resultType="com.spaceMarine.vo.CategoryVO">
+		WITH RECURSIVE cte AS
+		(
+		SELECT LVL_LVL, LVL_CD, H_LVL_CD,
+		LVL_SEQ, 1 AS Lv FROM category WHERE
+		H_LVL_CD=0
+		UNION all
+		SELECT
+		a.LVL_LVL, a.LVL_CD, a.H_LVL_CD, a.LVL_SEQ, b.Lv + 1 FROM category AS
+		a
+		INNER JOIN cte AS b ON a.H_LVL_CD = b.LVL_CD
+		)
+		SELECT DISTINCT
+		case when
+		substr(LVL_CD,1,5) =
+		substr(H_LVL_CD,1,5) then SUBSTR(LVL_CD,6) END AS
+		LVL_CD FROM cte WHERE H_LVL_CD = #{H_LVL_CD}
 	</select>
 
 </mapper>

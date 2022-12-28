@@ -33,9 +33,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public ItemVO read(String impa_cd) {
 		log.info("Impa_cd.........");
-		ItemVO itemVO = new ItemVO();
-		String code = itemVO.getIMPA_CD();
-		return mariadbSqlSession.read(code);
+		return mariadbSqlSession.read(impa_cd);
+	}
+
+	@Override
+	public List<ItemVO> lvItem(ItemVO item) {
+		return mariadbSqlSession.lvItem(item);
 	}
 
 }

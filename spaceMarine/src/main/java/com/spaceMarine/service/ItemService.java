@@ -15,4 +15,6 @@ public interface ItemService {
 
 	public ItemVO read(String impa_cd);
 
+	public List<ItemVO> lvItem(ItemVO item);
+
 }

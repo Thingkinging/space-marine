@@ -9,6 +9,8 @@ public interface ItemMapper {
 
 	public List<ItemVO> getList();
 
+	public List<ItemVO> lvItem(ItemVO item);
+
 	public ItemVO read(String impa_cd);
 
 	// 페이징 처리

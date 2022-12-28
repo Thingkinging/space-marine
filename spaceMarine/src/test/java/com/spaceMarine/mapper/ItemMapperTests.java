@@ -38,14 +38,4 @@ public class ItemMapperTests {
 		list.forEach(page -> log.info(page.getIMPA_CD()));
 	}
 
-	@Test
-	public void testGetCode() {
-		ItemVO itemVO = new ItemVO();
-		String code = itemVO.getIMPA_CD();
-
-		mariadbSqlSession.read("000101");
-
-		log.info("this value : " + mariadbSqlSession.read("000101"));
-	}
-
 }

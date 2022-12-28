@@ -14,4 +14,8 @@ public interface CategoryService {
 
 	public CategoryVO Lvl_Lvl(int Lvl_Lvl);
 
+	public CategoryVO lvOneCode(CategoryVO lvCode);
+
+	public List<CategoryVO> lvTwoItem(String lvTwo);
+
 }

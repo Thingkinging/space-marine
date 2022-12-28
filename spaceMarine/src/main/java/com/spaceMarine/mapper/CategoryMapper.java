@@ -14,4 +14,8 @@ public interface CategoryMapper {
 
 	public List<CategoryVO> getList_LVL_CD_CD();
 
+	public CategoryVO lvOneCode(CategoryVO lvOne);
+
+	public List<CategoryVO> lvTwoItem(String lvTwo);
+
 }

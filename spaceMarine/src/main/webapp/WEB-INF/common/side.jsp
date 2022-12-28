@@ -66,7 +66,6 @@ ul {
 
 
 <style type="text/css">
-
 #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
 	margin: 0;
 	padding: 0;
@@ -123,7 +122,7 @@ ul {
 	height: 10px;
 	width: 2px;
 	background: #ffffff;
- 	content: "";
+	content: "";
 	-webkit-transition: all 0.1s ease-out;
 	-moz-transition: all 0.1s ease-out;
 	-ms-transition: all 0.1s ease-out;
@@ -139,7 +138,7 @@ ul {
 	width: 10px;
 	height: 2px;
 	background: #ffffff;
- 	/* content: ""; */
+	/* content: ""; */
 	-webkit-transition: all 0.1s ease-out;
 	-moz-transition: all 0.1s ease-out;
 	-ms-transition: all 0.1s ease-out;
@@ -218,7 +217,7 @@ ul {
 			<div id="cssmenu">
 				<c:forEach var="side" items="${side}" begin="0" end="11" varStatus="status">
 					<ul>
-						<li class="has-sub"><a href="#">
+						<li class="has-sub"><a href="#" id="lvOne">
 								<c:out value="${side.LVL_CD}" />
 							</a> <c:forEach var="side2" items="${side2}">
 								<c:if test="${side.LVL_CD == side2.LVL_CD}">
@@ -228,7 +227,7 @@ ul {
 											</a> <c:forEach var="side3" items="${side3}">
 												<c:if test="${side2.h_LVL_CD == side3.h_LVL_CD}">
 													<ul>
-														<li class='has-sub'><a href="#">
+														<li id="value" class='has-sub'><a href="#" onclick="value()" id="value">
 																<c:out value="${side3.LVL_CD}" />
 															</a></li>
 													</ul>
@@ -293,9 +292,6 @@ ul {
 		</div>
 	</div>
 
-
-
-
 	<%-- <script src="${pageContext.request.contextPath}/resources/assets/dist/js/bootstrap.bundle.min.js"></script> --%>
 	<script>
 		(function($) {
@@ -322,6 +318,12 @@ ul {
 			});
 		})(jQuery);
 	</script>
+	<script type="text/javascript">
+	function value() {
+			location.href = "/board/lvOne";
+	}
+	</script>
+
 	<script src="${pageContext.request.contextPath}/resources/main/js/sidebars.js"></script>
 </body>
 </html>

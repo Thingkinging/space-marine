@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spaceMarine.dto.PageDTO;
 import com.spaceMarine.service.CategoryService;
@@ -33,7 +33,6 @@ public class ItemController {
 		log.info("main........." + cri);
 
 		model.addAttribute("list", service.getList(cri));
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		model.addAttribute("side", categoryService.getList_LVL_CD());
 		model.addAttribute("side2", categoryService.getList_H_LVL_CD());
 		model.addAttribute("side3", categoryService.getList_LVL_CD_CD());
@@ -47,7 +46,7 @@ public class ItemController {
 	}
 
 	@PostMapping("/codeInfo")
-	public String codeInfo(@RequestParam("codeInfo") String impa_cd, Model model, ItemVO itemVO) {
+	public String codeInfo(@ModelAttribute("codeInfo") String impa_cd, Model model, ItemVO itemVO) {
 		log.info("post codeInfo......." + impa_cd);
 		model.addAttribute("list", service.read(impa_cd));
 		return "/popup/codeInfo";
@@ -65,22 +64,15 @@ public class ItemController {
 		return "/popup/homepageInfo";
 	}
 
-	@GetMapping("/page1")
-	public String sidePage() {
-		log.info("get page1........");
-		return "/sidePage/page1";
+	@GetMapping("/lvOne")
+	public String lvOne(@ModelAttribute("value") String categoryVO, Model model, Criteria cri,
+			@ModelAttribute("value") ItemVO item) {
+		log.info("lvOne............" + categoryVO);
+//		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("list", service.lvItem(item));
+		model.addAttribute("lvOne", categoryService.lvTwoItem(categoryVO));
+
+		return "/sidePage/lvOne";
 	}
 
-//	@GetMapping("/side")
-//	public void category(Model model, Criteria cri) {
-//		log.info("category.......");
-//
-//		model.addAttribute("list", service.getList(cri));
-//	}
-
-//	@GetMapping
-//	public void get(@RequestParam("code") String code, Model model) {
-//		log.info("get");
-//		model.addAttribute("code", service.productList(code));
-//	}
 }

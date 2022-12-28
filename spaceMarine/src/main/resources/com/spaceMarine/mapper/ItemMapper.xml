@@ -8,7 +8,9 @@
 	</select>
 
 	<select id="read" resultType="com.spaceMarine.vo.ItemVO">
+	<![CDATA[
 		select * from item where IMPA_CD = #{IMPA_CD}
+		]]>
 	</select>
 
 
@@ -87,7 +89,10 @@
 		SELECT DISTINCT LVL1_CD, LVL2_CD, LVL3_CD,
 		LVL4_CD, item_level FROM cte;
 	</select>
-
+	
+	<select id="lvItem" resultType="com.spaceMarine.vo.ItemVO">
+		SELECT * FROM item WHERE LVL3_CD = #{LVL3_CD};
+	</select>
 
 
 </mapper>
